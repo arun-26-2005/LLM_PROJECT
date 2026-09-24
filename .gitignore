@@ -1,0 +1,41 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Generated data (large, reproducible via scripts)
+data/synthetic/valid/
+data/synthetic/invalid/
+data/synthetic/manifest.json
+data/synthetic_docs/
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
