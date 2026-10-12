@@ -1,0 +1,24 @@
+PROCEDURE GUIDELINES: CARDIAC — STEMI / MYOCARDIAL INFARCTION (ICD-10: I21)
+Applicable to all plan types under Synthetic Insurance Co. Ltd.
+
+1. COVERAGE CRITERIA
+1.1 Acute ST-Elevation Myocardial Infarction (STEMI) is covered as Emergency
+hospitalization. Pre-authorisation request must be submitted within 24 hours.
+1.2 Procedures covered: Primary PCI (percutaneous coronary intervention),
+thrombolysis, CABG (coronary artery bypass graft).
+
+2. SUB-LIMITS
+2.1 Stent Cost: Drug-eluting stent (DES) covered up to NPPA ceiling price.
+    - As per NPPA notification (effective 2017): DES ceiling price Rs. 30,000.
+    - Bare metal stent (BMS): Rs. 7,000.
+2.2 CABG: No specific sub-limit — covered under overall Sum Insured.
+2.3 ICU charges: Maximum 2% of Sum Insured per day.
+
+3. WAITING PERIOD
+3.1 No specific disease waiting period for cardiac emergencies.
+3.2 PED waiting period applies if patient has documented history of
+ischaemic heart disease prior to policy inception (4-year exclusion).
+
+4. NON-PAYABLE ITEMS
+4.1 External cardiac monitoring devices post-discharge — non-payable.
+4.2 Cardiac rehabilitation program fees — non-payable under standard plans.

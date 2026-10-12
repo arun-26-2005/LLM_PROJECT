@@ -1,0 +1,29 @@
+POLICY WORDING: CRITICAL ILLNESS BENEFIT PLAN
+Policy Type: Critical Illness
+Insurer: Synthetic Insurance Co. Ltd.
+Product: HealthGuard Critical Care
+UIN: SYNTH-CI-HLT-007/V1/2024
+
+SECTION 1 — BENEFIT STRUCTURE
+1.1 This is a fixed-benefit plan. Upon first diagnosis of a covered Critical
+Illness, the entire Sum Insured is payable as a lump sum, irrespective of
+actual treatment cost.
+
+1.2 Covered Critical Illnesses (37 conditions):
+    - STEMI / Myocardial Infarction (ICD-10: I21)
+    - Stroke (ICD-10: I63, I64)
+    - Cancer (ICD-10: C00-C97)
+    - End-Stage Renal Disease (ICD-10: N18.5, N18.6)
+    - Major Organ Transplant
+    - Coronary Artery Bypass Graft (CABG)
+    - Open Heart Surgery / Valve Replacement
+
+1.3 Survival Period: The insured must survive for at least 30 days after
+the date of first diagnosis of the Critical Illness.
+
+SECTION 2 — WAITING PERIODS
+2.1 Initial waiting period: 90 days from the date of commencement.
+2.2 No specific disease waiting period applicable.
+2.3 PED exclusion: Any Critical Illness that is a direct consequence of
+a pre-existing disease diagnosed before policy inception is excluded
+for the first 48 months.

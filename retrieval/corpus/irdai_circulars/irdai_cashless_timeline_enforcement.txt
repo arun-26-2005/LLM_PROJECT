@@ -1,0 +1,41 @@
+IRDAI ENFORCEMENT GUIDANCE: CASHLESS PRE-AUTHORISATION TIMELINES
+Reference: IRDAI/HLT/CIR/MISC/116/05/2024, Chapter VI, Sections 36-38
+Date: 29-May-2024
+Source: Insurance Regulatory and Development Authority of India (IRDAI)
+
+REGULATORY COMPLIANCE REQUIREMENTS:
+
+1. ONE-HOUR CLOCK:
+   The pre-authorisation decision must be communicated to the network
+   provider within 60 minutes of receipt of the request with all
+   necessary supporting documents. This is a hard compliance obligation,
+   not a service-level aspiration.
+
+2. THREE-HOUR CLOCK:
+   Final discharge authorization must be communicated within 3 hours of
+   receipt of the final bill and discharge summary.
+
+3. CONSEQUENCES OF NON-COMPLIANCE:
+   3.1 Deemed approval: If the insurer fails to communicate within the
+   stipulated time, the claim is deemed approved.
+   3.2 Regulatory action: Persistent non-compliance may attract regulatory
+   action under Section 102 of the Insurance Act, 1938.
+
+4. SINGLE-QUERY RULE:
+   All queries must be raised in a single communication. Serial queries
+   on the same claim are treated as poor claims practice and are subject
+   to penalty.
+
+5. DOCUMENT REQUIREMENTS:
+   The following documents are considered "necessary" for pre-auth decision:
+   a) Duly filled pre-authorization form
+   b) Doctor's prescription / case sheet recommending hospitalization
+   c) Photo ID proof of insured person
+   d) Health card / policy number
+   e) Investigation reports supporting the diagnosis
+
+6. RECOMMEND-ONLY AUTOMATED SYSTEMS:
+   Any automated system assisting in pre-authorisation decisions must
+   operate in a "recommend-only" mode. The final decision authority
+   rests with the insurer's authorized medical officer or claims
+   team. Automated systems shall not auto-approve or auto-deny claims.

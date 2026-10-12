@@ -1,0 +1,30 @@
+POLICY WORDING: GROUP HEALTH INSURANCE (CORPORATE)
+Policy Type: Group
+Insurer: Synthetic Insurance Co. Ltd.
+Product: HealthGuard Corporate Shield
+UIN: SYNTH-GRP-HLT-003/V1/2024
+
+SECTION 1 — GROUP POLICY PROVISIONS
+1.1 This policy is issued to the Employer (Master Policyholder) for the benefit
+of eligible employees and their declared dependents.
+
+1.2 Waiver of Initial Waiting Period: The initial 30-day waiting period
+is waived for all covered members from the date of joining the group scheme.
+
+1.3 Waiver of Specific Disease Waiting Period: The 24-month specific disease
+waiting period is waived for group policies covering 100 or more lives.
+
+1.4 Pre-Existing Disease: PED waiting period is reduced to 12 months
+(from the standard 48 months) for group policies covering 500 or more lives.
+
+SECTION 2 — SUM INSURED AND LIMITS
+2.1 Sum Insured: As specified in the Group Policy Schedule, typically
+Rs. 3,00,000 / Rs. 5,00,000 per employee per policy year.
+
+2.2 Room Rent: Single occupancy room (no sub-limit) for Sum Insured of
+Rs. 5,00,000 and above. For lower Sum Insured, Rs. 5,000/day limit applies.
+
+SECTION 3 — CO-PAYMENT
+3.1 No co-payment applicable for network hospital treatment.
+3.2 For non-network hospitals, a 20% co-payment applies on the total
+admissible claim amount.

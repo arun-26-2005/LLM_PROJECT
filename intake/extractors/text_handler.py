@@ -44,17 +44,23 @@ def process_text_intake(source: Union[str, Path]) -> IntakeResult:
     # =========================================================================
     # Polymorphic handling allows the caller to pass either an on-disk .txt path
     # or an unpersisted string buffer without maintaining separate intake entrypoints.
-    if isinstance(source, (str, Path)):
-        path = Path(source)
-        # Check whether the string or Path represents an actual file on disk.
-        # If true, open and read with UTF-8 encoding to preserve clinical symbols
-        # (e.g., degree signs, micro-units 'µg', comparison operators '≥').
-        if path.is_file():
-            with open(path, "r", encoding="utf-8") as f:
-                text_content = f.read()
+    if isinstance(source, Path):
+        with open(source, "r", encoding="utf-8") as f:
+            text_content = f.read()
+    elif isinstance(source, str):
+        # Only check if it's a file if the string is reasonably short (to avoid OSError)
+        if len(source) < 255:
+            try:
+                path = Path(source)
+                if path.is_file():
+                    with open(path, "r", encoding="utf-8") as f:
+                        text_content = f.read()
+                else:
+                    text_content = source
+            except OSError:
+                text_content = source
         else:
-            # If not a file on disk, treat the input directly as the clinical narrative text
-            text_content = str(source)
+            text_content = source
 
     # =========================================================================
     # 2. Content Normalization & Empty Input Guard

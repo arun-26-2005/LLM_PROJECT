@@ -1,0 +1,45 @@
+POLICY WORDING: FAMILY FLOATER HEALTH INSURANCE
+Policy Type: Family Floater
+Insurer: Synthetic Insurance Co. Ltd.
+Product: HealthGuard Family Floater Plan
+UIN: SYNTH-FF-HLT-002/V1/2024
+
+SECTION 1 — FAMILY FLOATER PROVISIONS
+1.1 The Sum Insured specified in the Policy Schedule is the combined maximum
+liability of the Company for all Insured Persons covered under this policy
+during any one policy year. Any claim by one Insured Person reduces the Sum
+Insured available for all other Insured Persons.
+
+1.2 The primary policyholder's age determines the premium. The oldest member
+of the family is considered the primary insured for underwriting purposes.
+
+SECTION 2 — SUM INSURED TIERS AND ROOM RENT
+2.1 Sum Insured options: Rs. 3,00,000 / Rs. 5,00,000 / Rs. 10,00,000 / Rs. 25,00,000
+2.2 Room Rent Sub-Limit:
+    - Sum Insured up to Rs. 5,00,000: Rs. 5,000 per day (General Ward) or
+      1% of SI, whichever is lower.
+    - Sum Insured Rs. 5,00,001 to Rs. 10,00,000: Rs. 7,500 per day or
+      1% of SI, whichever is lower.
+    - Sum Insured above Rs. 10,00,000: No room rent sub-limit (Single AC Room).
+
+2.3 ICU Charges: ICU charges limited to 2x the applicable room rent sub-limit.
+
+2.4 Proportionate Deduction: If actual room rent exceeds the eligible room rent,
+proportionate deduction shall apply to surgeon fees, anaesthesia, consultation,
+diagnostics, and pharmacy charges in the ratio: (eligible room rent / actual room rent).
+
+SECTION 3 — WAITING PERIODS
+3.1 All waiting period provisions follow the Standard Individual Plan
+(Reference: SYNTH-IND-HLT-001, Section 3).
+
+3.2 Additional Maternity Waiting Period: Maternity expenses including normal
+delivery, caesarean section, and pre/post-natal expenses are covered only
+after completion of 36 continuous months (3 years) from the date of
+commencement of the first policy period. Maximum limit: Rs. 50,000 for
+normal delivery, Rs. 75,000 for caesarean section.
+
+SECTION 4 — CO-PAYMENT
+4.1 No mandatory co-payment for ages below 60 years.
+4.2 Mandatory 10% co-payment for members aged 60-70 years.
+4.3 Mandatory 20% co-payment for members aged above 70 years.
+4.4 Voluntary co-payment options (10%, 20%, 25%) available for premium discount.

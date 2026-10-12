@@ -135,27 +135,43 @@ def parse_cost_line_items(text: str) -> list[CostLineItem]:
     """
     line_items: list[CostLineItem] = []
     
+    # If the document has a distinct cost section, restrict line item search to it
+    cost_section_match = re.search(
+        r"(?:ESTIMATED\s+COST|COST\s+BREAKDOWN|BILLING\s+DETAILS|ESTIMATE\s+OF\s+EXPENSES|ESTIMATED\s+EXPENSES|BREAKDOWN\s+OF\s+COSTS)[\s\S]*",
+        text,
+        re.IGNORECASE,
+    )
+    search_text = cost_section_match.group(0) if cost_section_match else text
+
+    skip_keywords = [
+        "total", "grand total", "sum insured", "policy", "patient", "admission",
+        "submission", "date", "age", "gender", "sex", "icd", "cpt", "hospital",
+        "doctor", "phone", "mobile", "pin", "pincode", "tier", "city", "state",
+        "diagnosis", "procedure", "plan", "request id", "source format", "pol", "id"
+    ]
+    
     # Process text line by line to isolate discrete billing table entries
-    lines = text.splitlines()
+    lines = search_text.splitlines()
     for line in lines:
         line_clean = line.strip()
         # Discard empty lines or whitespace padding
         if not line_clean:
             continue
             
-        # Match lines like "Room Rent: 25000.00" or "Estimated Surgeon Fee ... ₹ 45,000.00"
+        # Match lines like "Room Rent: 25000.00", "Estimated Surgeon Fee ... ₹ 45,000.00", or "INR 60274.40"
         # Captures: Group 1 = Service label, Group 2 = Amount digits (with optional commas/decimals)
-        m = re.search(r"([A-Za-z\s\-/]+)[:\s\.\-]+\$?₹?\s*([\d,]+\.?\d*)", line_clean)
+        m = re.search(r"([A-Za-z\s\-/]+)[:\s\.\-]+(?:INR|Rs\.?|₹|\$)?\s*([\d,]+\.?\d*)", line_clean, flags=re.IGNORECASE)
         if m:
             item_name = m.group(1).strip()
+            item_lower = item_name.lower()
             # Strip comma thousands-separators to allow direct Decimal conversion
             raw_amt = m.group(2).replace(",", "")
             
-            # Skip totals or headers:
+            # Skip non-cost identifiers, headers, and metadata fields:
             # Aggregates like 'Grand Total', 'Sum Insured', or policy headers represent
             # policy limits or calculated rollups, NOT discrete chargeable services.
             # Including them would cause severe financial double-counting during adjudication.
-            if any(k in item_name.lower() for k in ["total", "grand total", "sum insured", "policy"]):
+            if any(k == item_lower or k in item_lower.split() for k in skip_keywords) or any(k in item_lower for k in ["total", "grand total", "sum insured", "policy", "date", "request id"]):
                 continue
                 
             try:
@@ -165,7 +181,6 @@ def parse_cost_line_items(text: str) -> list[CostLineItem]:
                 if amt > 0:
                     # Categorize item using keyword heuristic to align with policy sub-limits
                     category = CostCategory.OTHER
-                    item_lower = item_name.lower()
                     # Check most specific categories first, falling back to general buckets
                     if "room" in item_lower:
                         category = CostCategory.ROOM_RENT
@@ -177,9 +192,9 @@ def parse_cost_line_items(text: str) -> list[CostLineItem]:
                         category = CostCategory.ANAESTHESIA_FEE
                     elif "consult" in item_lower:
                         category = CostCategory.CONSULTATION_FEE
-                    elif "diag" in item_lower or "lab" in item_lower or "x-ray" in item_lower:
+                    elif any(k in item_lower for k in ["diag", "lab", "x-ray"]):
                         category = CostCategory.DIAGNOSTIC
-                    elif "pharm" in item_lower or "drug" in item_lower or "med" in item_lower:
+                    elif any(k in item_lower for k in ["pharm", "drug", "med"]):
                         category = CostCategory.PHARMACY
                     elif "consum" in item_lower:
                         category = CostCategory.CONSUMABLES
@@ -255,7 +270,7 @@ def extract_structured_pre_auth(
     # 1. Patient Details Extraction
     # ------------------------------------------------------------------------
     # Primary match: Searches for explicit label prefixes such as "Patient Name:", "Name:", or "Patient:"
-    name_val, name_inf = extract_key_value(r"(?:Patient Name|Name|Patient)\s*[:\-]\s*([A-Za-z\s]+)", raw_text)
+    name_val, name_inf = extract_key_value(r"(?:Patient Name|Name|Patient)\s*[:\-]\s*([A-Za-z\.\s]+?)(?:\r?\n|$)", raw_text)
     if name_inf or not name_val:
         # Fallback regex: Look for salutations (Mr./Mrs./Ms.) or inline 'Patient:' preceding Title Case names.
         # This catches unstructured narratives or referral letters where structured form labels are omitted.
@@ -314,16 +329,30 @@ def extract_structured_pre_auth(
         # Safeguard Decimal conversion against OCR noise
         sum_insured_amt = Decimal("500000.00")
 
-    # Plan Type: Differentiates Individual vs Family Floater plans; defaults to Individual
+    # Plan Type: Differentiates Individual, Group, Family Floater, Senior Citizen, etc.
     plan_str, plan_inf = extract_key_value(r"(?:Plan\s*Type|Plan)\s*[:\-]\s*([A-Za-z_]+)", raw_text, "individual")
     if plan_inf:
         inferred_fields.append("policy.plan_type")
-    # Substring detection captures "Family Floater", "floater", or "FLOATER"
-    plan_enum = PlanType.FAMILY_FLOATER if "floater" in plan_str.lower() else PlanType.INDIVIDUAL
+    
+    plan_lower = plan_str.lower()
+    if "floater" in plan_lower:
+        plan_enum = PlanType.FAMILY_FLOATER
+    elif "group" in plan_lower or "corporate" in plan_lower:
+        plan_enum = PlanType.GROUP
+    elif "senior" in plan_lower:
+        plan_enum = PlanType.SENIOR_CITIZEN
+    elif "critical" in plan_lower:
+        plan_enum = PlanType.CRITICAL_ILLNESS
+    elif "super" in plan_lower and "top" in plan_lower:
+        plan_enum = PlanType.SUPER_TOP_UP
+    elif "top" in plan_lower:
+        plan_enum = PlanType.TOP_UP
+    else:
+        plan_enum = PlanType.INDIVIDUAL
 
     # Policy Start Date: Inception date is required for calculating waiting periods (e.g. 24/48-month PED clauses)
     # Defaults to standard calendar epoch "2025-01-01" if missing from intake document
-    start_date_str, start_inf = extract_key_value(r"(?:Policy\s*Start|Inception)\s*[:\-]\s*([\d\-\/]+)", raw_text, "2025-01-01")
+    start_date_str, start_inf = extract_key_value(r"(?:Policy\s*Start(?:\s*Date)?|Inception)\s*[:\-]\s*([\d\-\/]+)", raw_text, "2025-01-01")
     if start_inf:
         inferred_fields.append("policy.policy_start_date")
     try:
@@ -345,7 +374,7 @@ def extract_structured_pre_auth(
     # 3. Hospital Details Extraction
     # ------------------------------------------------------------------------
     # Primary match: Searches for labeled hospital name key-value pairs
-    hosp_name, hosp_inf = extract_key_value(r"(?:Hospital\s*Name|Hospital)\s*[:\-]\s*([A-Za-z0-9\s,\.\-]+)", raw_text)
+    hosp_name, hosp_inf = extract_key_value(r"(?:Hospital\s*Name|Hospital)\s*[:\-]\s*([A-Za-z0-9\s,\.\-]+?)(?:\r?\n|$)", raw_text)
     if hosp_inf or not hosp_name:
         # Fallback regex: Documents like admission notes or letterheads often omit the "Hospital:" label
         # but contain recognized healthcare facility noun phrases ("Hospital", "Medical Center", "Clinic").
@@ -357,7 +386,7 @@ def extract_structured_pre_auth(
             missing_fields.append("hospital.name")
 
     # Hospital City: Needed for tariff zone categorization (Tier 1 vs Tier 2 cities); defaults to "Mumbai"
-    city_val, city_inf = extract_key_value(r"(?:City|Location)\s*[:\-]\s*([A-Za-z\s]+)", raw_text, "Mumbai")
+    city_val, city_inf = extract_key_value(r"(?:City|Location)\s*[:\-]\s*([A-Za-z\s]+?)(?:\r?\n|$)", raw_text, "Mumbai")
     if city_inf:
         inferred_fields.append("hospital.city")
 
@@ -375,7 +404,7 @@ def extract_structured_pre_auth(
     # ICD-10 Code: Standard international disease code (e.g., "K35.80", "I25.10")
     icd10_code, icd_inf = extract_key_value(r"(?:ICD-?10\s*Code|ICD-?10|ICD)\s*[:\-]\s*([A-Z0-9\.]+)", raw_text)
     # Diagnosis Description: Clinical condition narrative
-    diag_desc, diag_inf = extract_key_value(r"(?:Diagnosis|Condition)\s*[:\-]\s*([A-Za-z0-9\s,\(\)\-]+)", raw_text)
+    diag_desc, diag_inf = extract_key_value(r"(?:Diagnosis|Condition)\s*[:\-]\s*([A-Za-z0-9\s,\(\)\-]+?)(?:\r?\n|$)", raw_text)
     if diag_inf or not diag_desc:
         diag_desc = "General Clinical Condition"
         missing_fields.append("diagnosis.description")
@@ -385,11 +414,11 @@ def extract_structured_pre_auth(
     # Uses case-insensitive regex to scan for explicit declarations of prior chronic illness
     # (e.g. "pre-existing", "preexisting condition", "PED: Yes"). This flag directly impacts
     # underwriting exclusion checks and statutory waiting period verification.
-    is_ped = bool(re.search(r"(pre-?existing|PED\s*[:\-]?\s*yes)", raw_text, re.IGNORECASE))
+    is_ped = bool(re.search(r"(pre-?existing(?:\s*condition)?\s*[:\-]?\s*yes|PED\s*[:\-]?\s*yes)", raw_text, re.IGNORECASE))
 
     # Procedure Code (CPT/Internal) & Description
     proc_code, proc_code_inf = extract_key_value(r"(?:Procedure\s*Code|CPT)\s*[:\-]\s*([A-Z0-9\-]+)", raw_text)
-    proc_desc, proc_inf = extract_key_value(r"(?:Procedure|Treatment)\s*[:\-]\s*([A-Za-z0-9\s,\(\)\-]+)", raw_text)
+    proc_desc, proc_inf = extract_key_value(r"(?:Procedure|Treatment)\s*[:\-]\s*([A-Za-z0-9\s,\(\)\-]+?)(?:\r?\n|$)", raw_text)
     if proc_inf or not proc_desc:
         proc_desc = "Surgical / Medical Procedure"
         missing_fields.append("procedure.description")
@@ -415,7 +444,7 @@ def extract_structured_pre_auth(
     # ------------------------------------------------------------------------
     # Extract explicitly stated grand total cost from document
     total_cost_str, total_cost_inf = extract_key_value(
-        r"(?:Total\s*Estimated\s*Cost|Total\s*Amount|Grand\s*Total|Total)\s*[:\-]\s*₹?\s*([\d,]+\.?\d*)", raw_text
+        r"(?:Total\s*Estimated\s*Cost|Total\s*Amount|Grand\s*Total|Total)\s*[:\-]\s*(?:INR|Rs\.?|₹|\$)?\s*([\d,]+\.?\d*)", raw_text
     )
     # Parse individual line items from billing tables or itemized free text
     line_items = parse_cost_line_items(raw_text)
@@ -457,17 +486,20 @@ def extract_structured_pre_auth(
         declared_total = computed_sum
     elif abs(computed_sum - declared_total) > Decimal("1.00") and computed_sum > 0:
         # Case B: Discrepancy > ₹1.00 between declared total and line items sum.
-        # Inject an adjustment line item for the exact difference to guarantee mathematical
-        # reconciliation and prevent schema validation failures, while flagging inference for audit.
+        # Inject an adjustment line item for positive difference, or update declared_total to computed_sum
         diff = declared_total - computed_sum
-        line_items.append(
-            CostLineItem(
-                item="Miscellaneous Adjustment Charges",
-                amount=diff,
-                category=CostCategory.OTHER,
+        if diff > Decimal("0.00"):
+            line_items.append(
+                CostLineItem(
+                    item="Miscellaneous Adjustment Charges",
+                    amount=diff,
+                    category=CostCategory.OTHER,
+                )
             )
-        )
-        inferred_fields.append("cost_estimate.line_items_reconciled")
+            inferred_fields.append("cost_estimate.line_items_reconciled")
+        else:
+            declared_total = computed_sum
+            inferred_fields.append("cost_estimate.total_reconciled_to_sum")
 
     # ------------------------------------------------------------------------
     # 6. Date Parsing & Normalization

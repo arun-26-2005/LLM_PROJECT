@@ -1,0 +1,22 @@
+BENEFIT SCHEDULE: DISEASE-SPECIFIC AND PROCEDURE SUB-LIMITS
+Effective from: 01-April-2024
+Insurer: Synthetic Insurance Co. Ltd.
+
++-----------------------------+-------------------+--------------+
+| Procedure / Disease         | Sub-Limit (Max)   | Plan Types   |
++-----------------------------+-------------------+--------------+
+| Cataract (per eye)          | Rs. 40,000        | Indiv, FF, SC|
+| Knee Replacement (per knee) | Rs. 1,50,000      | Indiv, FF, SC|
+| CABG / Open Heart Surgery   | Rs. 3,00,000      | SC only      |
+| Dialysis (per session)      | Rs. 2,000         | All plans    |
+| Dialysis (annual sessions)  | 24 sessions/year  | All plans    |
+| Maternity - Normal Delivery | Rs. 50,000        | FF only      |
+| Maternity - Caesarean        | Rs. 75,000        | FF only      |
+| Ambulance Charges           | Rs. 2,000/event   | All plans    |
+| Dental (accident only)      | Rs. 25,000        | All plans    |
++-----------------------------+-------------------+--------------+
+
+Notes:
+1. Sub-limits apply independently of the overall Sum Insured.
+2. For Group Plans with 100+ lives, disease-specific sub-limits may be waived.
+3. Sub-limits are applied BEFORE co-payment calculation.

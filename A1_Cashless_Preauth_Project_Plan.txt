@@ -1,0 +1,279 @@
+TRACK A — HEALTH & MOTOR CLAIMS  |  PROJECT A1  |  DIFFICULTY: MEDIUM
+Cashless Pre-authorisation Agent (NHCX-aligned)
+Team Capstone Implementation Plan — 3-Member Work Breakdown
+1. Problem
+India's IRDAI Master Circular on Health Insurance Business (May 2024) turned cashless authorisation into a hard, timed compliance obligation: pre-authorisation decisions must be made within one hour of a hospital's request, and final discharge authorisation within three hours. Missing that clock is not a service lapse — it is a regulatory breach.
+Today, most of that first-touch decision is mechanical rather than judgment-heavy: read the hospital's pre-auth request, locate the correct policy wording and any endorsements, check waiting periods, sub-limits, room-rent capping, co-pay and exclusions, and confirm the admission date falls inside the policy period. Because this is done manually and under time pressure, two adjudicators can reach different conclusions on identical facts, and customers experience repeated “please send one more document” cycles — the single largest driver of poor claims experience and Ombudsman complaints.
+The problem this project solves: build an agent that performs this mechanical first pass — ingest, extract, retrieve the governing clause, apply the rule, and produce a defensible, cited recommendation — fast enough to fit inside the regulatory window, while a human remains the only party who actually authorises or denies a claim.
+2. Contribution
+The team will design and build an end-to-end, recommend-only agentic pipeline that:
+	•	Ingests a hospital cashless pre-authorisation request (synthetic, NHCX/FHIR-style payload — PDF, scanned image or structured JSON).
+	•	Extracts a structured clinical and financial record (patient/policy IDs, diagnosis, procedure, estimated cost, admission type, hospital details) into a validated Pydantic schema.
+	•	Retrieves the applicable benefit structure and policy clauses — waiting periods, sub-limits, room-rent capping, co-pay, deductibles, exclusions, the IRDAI non-payables list.
+	•	Reasons against those clauses to produce one of three recommendations — Authorise / Query / Deny — never an automatic decision.
+	•	Shows the arithmetic and cites the exact clause behind every capping or deduction.
+	•	Routes low-confidence, high-value or clause-ambiguous cases to a human reviewer queue, and logs every step to an immutable audit trail.
+	•	Is evaluated on turnaround time against the regulatory clock, extraction and retrieval quality, grounding fidelity, decision accuracy and behaviour on adversarial inputs.
+This is a “recommend, never decide” system in line with the governance guardrails in Section 8 — a human always signs off before any real authorisation or denial is issued.
+3. Team & Role Split
+Work is split along the shared technical spine so each member owns a coherent vertical slice, while all three integrate weekly. This keeps ownership clear and makes the Week 7–8 orchestration integration tractable.
+Member
+Role
+Owns (pipeline stages)
+Member 1
+Data & Extraction Engineer
+Synthetic data generation → multi-format ingestion → structured extraction & schema validation
+Member 2
+Retrieval, Rules & Orchestration Engineer
+Clause retrieval → rules engine → tool calls into mock core systems → agent orchestration & decisioning
+Member 3
+Evaluation, Governance & Interface Engineer
+Escalation router → audit log → evaluation harness → deployment note → demo interface
+4. Tech Stack
+4.1 Shared foundation (all members)
+	•	Language & environment: Python 3.11, Git/GitHub, virtualenv or Poetry
+	•	Schema & validation: Pydantic v2 (structured extraction, decision object, audit record)
+	•	Agent orchestration: LangGraph (recommended for explicit state machine + human-in-the-loop nodes) or CrewAI as an alternative — pick one and justify in the report
+	•	LLM access: Claude or GPT via API for extraction/reasoning; optionally one open-weight model (e.g. Llama/Mistral class) for the deployment-note cost/quality comparison
+	•	Document parsing: pdfplumber / PyMuPDF for text PDFs, Tesseract or PaddleOCR for scanned pre-auth forms
+	•	Data interchange target: FHIR-style JSON, aligned to NHCX's claim exchange structure rather than a bespoke schema
+4.2 Member-specific tooling
+Member 1 — Data & Extraction
+	•	Synthetic data: LLM-assisted generation + Faker for identifiers; a documented generator script (governance guardrail: synthetic data only)
+	•	Extraction: LLM function-calling / structured-output mode, validated against Pydantic schemas; OCR post-processing for scanned inputs
+Member 2 — Retrieval & Orchestration
+	•	Vector store: FAISS or Chroma; embeddings via OpenAI/Cohere/local sentence-transformers
+	•	Rules engine: Python rule objects or a lightweight DSL for waiting period / sub-limit / co-pay / room-rent capping logic
+	•	Mock core systems: FastAPI stub endpoints simulating the policy admin and claims systems (tool-calling targets)
+Member 3 — Evaluation, Governance & Interface
+	•	Evaluation: pytest + pandas scoring notebook/script against the golden test set
+	•	Audit log: append-only store (SQLite or hash-chained JSON lines) for tamper-evidence
+	•	Demo/UI: Streamlit (fastest) or FastAPI + a minimal React front end for the reviewer queue and audit trail viewer
+5. Workflow
+The pipeline follows the shared technical spine used across all 17 capstone teams, specialised for cashless pre-authorisation:
+Stage
+What happens
+Primary owner
+1. Ingestion
+Hospital pre-auth request arrives as PDF / scanned image / JSON
+Member 1
+2. Structured extraction
+Parsed into a validated schema: patient, policy, hospital, diagnosis, procedure, estimated cost
+Member 1
+3. Retrieval
+Governing benefit clauses, policy wording and the IRDAI non-payables list are retrieved
+Member 2
+4. Tool calls
+Mock policy admin / claims APIs checked — policy status, waiting period elapsed, sub-limit balance
+Member 2
+5. Policy-aware reasoning
+Agent applies rules, computes any capped/deducted amount, drafts Authorise / Query / Deny with citations
+Member 2
+6. Escalation router
+Low-confidence, high-value or ambiguous cases routed to a human review queue
+Member 3
+7. Immutable audit log
+Inputs, retrieved clauses, computation, decision and any human override are logged
+Member 3
+8. Evaluation & demo
+Golden-set scoring, adversarial testing, latency vs the 1-hour clock, live demo
+Member 3 (all contribute cases)
+
+Suggested 12-week build sequence
+Weeks
+Milestone
+Lead(s)
+1–2
+Synthetic data corpus + schema design
+Member 1 (supported by all)
+3–4
+Extraction pipeline + retrieval baseline
+Member 1 & Member 2
+5–6
+Rules engine + tool calling against mock systems
+Member 2
+7–8
+Full agent orchestration (integration week — all three together)
+All three
+9–10
+Evaluation harness + adversarial case set + escalation router/audit log
+Member 3 (Member 2 supports agent fixes)
+11–12
+Hardening, deployment note, demo, final report
+All three
+6. Member-wise Implementation Plans
+6.1 Member 1 — Data & Extraction Engineer
+Owns everything upstream of retrieval: getting real-world-shaped, synthetic, defensible input into a clean structured record.
+Responsibilities
+	•	Design and generate a synthetic corpus: hospital pre-auth requests, policy wordings, benefit tables and the IRDAI non-payables list. Document the generation method in full — no real policyholder data, ever.
+	•	Define the Pydantic schemas: PreAuthRequest, PolicyBenefit, and the shared DecisionRecord contract used by Member 2 and Member 3.
+	•	Build multi-format ingestion: text PDFs, scanned/illegible images (OCR), and NHCX/FHIR-style JSON.
+	•	Build the LLM-assisted structured extraction step, validated against schema, with graceful handling of malformed or partially illegible input.
+	•	Measure and report field-level precision/recall on the golden test set (extraction-accuracy dimension of the rubric).
+Weekly plan
+Week
+Task
+Deliverable
+1
+Study NHCX FHIR claim-exchange structure; draft PreAuthRequest schema
+Draft schema v0
+2
+Build synthetic data generator (varied hospitals, diagnoses, cost bands, edge cases)
+≥100 synthetic cases + generator doc
+3
+PDF/JSON ingestion module
+Ingestion module + unit tests
+4
+OCR pipeline for scanned/illegible forms
+OCR module + accuracy note
+5–6
+LLM-based structured extraction + schema validation
+Extraction module, precision/recall report
+7–8
+Integration with Member 2's retrieval & orchestration graph
+Working end-to-end ingestion→extraction→handoff
+9–10
+Support adversarial-case authoring (illegible scan, wrong language, transposed digits)
+4+ adversarial extraction cases
+11–12
+Polish, edge-case fixes, contribute to deployment note & report
+Final module + write-up
+Suggested tools: Python, Pydantic v2, pdfplumber/PyMuPDF, Tesseract or PaddleOCR, an LLM API for both synthetic data generation and extraction.
+6.2 Member 2 — Retrieval, Rules & Orchestration Engineer
+Owns the reasoning core: turning a structured claim plus the governing clauses into a cited, arithmetic-backed recommendation.
+Responsibilities
+	•	Build a retrieval index over policy wordings, benefit tables and relevant IRDAI circular excerpts; measure Recall@k on a labelled query set.
+	•	Implement the rules engine: waiting-period checks, sub-limit and room-rent capping with proportionate deduction, co-pay, deductibles, exclusions, and the non-payables list.
+	•	Build mock core-system tool calls (FastAPI stubs) for policy status, waiting-period-elapsed and sub-limit-balance lookups.
+	•	Orchestrate the full agent graph in LangGraph/CrewAI: extraction → retrieval → tool calls → reasoning → decision, with a confidence score and a clause citation on every deduction.
+	•	Enforce “grounded output or no output”: no unsupported clause citation ever leaves the reasoning node.
+Weekly plan
+Week
+Task
+Deliverable
+1–2
+Study benefit-structure documents; design retrieval chunking strategy
+Retrieval design note
+3–4
+Build vector index + baseline retrieval; evaluate Recall@k
+Retrieval baseline + metric
+5–6
+Build rules engine (waiting period, sub-limits, capping, co-pay); mock tool APIs
+Rules engine + FastAPI stubs
+7–8
+Wire full LangGraph/CrewAI orchestration; integrate Member 1's extraction output
+Working end-to-end agent (integration week)
+9–10
+Tune reasoning against adversarial cases (waiting-period edge, endorsement reversal, threshold cases)
+Revised agent + failure-mode notes
+11–12
+Latency and cost profiling against the 1-hour clock; final polish
+Perf report, final orchestration code
+Suggested tools: LangGraph or CrewAI, FAISS/Chroma, an embeddings API, Claude/GPT for reasoning, FastAPI for mock systems.
+6.3 Member 3 — Evaluation, Governance & Interface Engineer
+Owns everything downstream of a decision, plus the accountability layer that makes the whole system defensible.
+Responsibilities
+	•	Design and build the escalation router: explicit triggers (low confidence, high claim value, conflicting clauses) and the human reviewer queue.
+	•	Build the immutable audit log (append-only / hash-chained), recording inputs, retrieved clauses, arithmetic, the recommendation, and any human override.
+	•	Build the evaluation harness against a ≥100-case golden set (≥30 adversarial): extraction accuracy, retrieval quality, grounding fidelity, decision accuracy, escalation precision, latency, cost, robustness, fairness.
+	•	Author the one-page deployment note: where the model runs in production, what data crosses which boundary, and the quality/cost trade-off of an India-hosted or open-weight model versus an overseas API.
+	•	Build the demo interface (reviewer queue + audit trail viewer) used for the final presentation.
+Weekly plan
+Week
+Task
+Deliverable
+1–2
+Design DecisionRecord/audit schema jointly with Member 1
+Audit schema v0
+3–4
+Build audit log module (append-only, tamper-evident)
+Audit log module + tests
+5–6
+Design escalation-trigger logic; draft golden test set (100 cases, 30 adversarial)
+Escalation rules + golden set v0
+7–8
+Wire escalation router into the orchestration graph (integration week)
+Working end-to-end router
+9–10
+Build evaluation harness; run full rubric scoring; fairness perturbation tests
+Scorecard report across all 9 rubric dimensions
+11–12
+Deployment note, demo UI, final report assembly, rehearsal
+Deployment note, demo, final submission
+Suggested tools: pytest, pandas, SQLite or hash-chained JSONL, Streamlit or FastAPI+React.
+7. Outcome
+Success is measured the same way an insurer's risk and operations committees would measure it:
+	•	Turnaround compliance — share of pre-auth recommendations produced inside the 60-minute window (the metric with direct regulatory impact).
+	•	First-touch handling time reduced 30–50% on a fixed claim mix, before vs. after.
+	•	A defined band of low-value, low-complexity claims handled straight-through with only a human spot-check.
+	•	One-and-done document requests — completeness gaps identified in a single query instead of two or three rounds.
+	•	Decision consistency — reduced variance in recommendations across the same scenario set.
+	•	Leakage reduction — sub-limits, capping and exclusions applied correctly under time pressure.
+	•	Auditability — 100% of deductions carry a clause-level citation; a fabricated or misattributed citation is a critical failure, not a minor one.
+8. Governance Guardrails (mandatory)
+These apply to every one of the 17 capstone teams and are graded, not optional framing:
+	•	Recommend, never decide — the agent never auto-authorises or auto-denies. Be ready to explain why this is both the safe and the regulatorily coherent design.
+	•	Grounded output or no output — every coverage conclusion or deduction cites a retrieved clause or source page; a fabricated citation is a critical failure.
+	•	Synthetic data only — no real policyholder or claimant data, under any circumstances; document the generator.
+	•	Deployment note — a one-page analysis of where the model runs, what data crosses which boundary, and the cost of an India-hosted or open-weight alternative.
+	•	Fairness — decisions rest only on risk-relevant, cited rules, never on proxies for religion, caste, region or gender inferred from name, address or PIN code.
+	•	Cite the live text — every regulatory claim cites the current instrument on irdai.gov.in with its date; working from a stale summary (including this brief) is itself an error.
+	•	Human-in-the-loop — define explicitly what triggers escalation, what the human reviewer sees, and how a human override is captured for future improvement.
+9. Evaluation Rubric
+Report all nine numbers on a shared golden test set of at least 100 cases, of which at least 30 are deliberately adversarial:
+Dimension
+What to measure
+Extraction accuracy
+Field-level precision and recall on the structured record
+Retrieval quality
+Was the governing clause actually retrieved? Recall@k
+Grounding fidelity
+% of assertions traceable to a real source; hallucinated-citation rate
+Decision accuracy
+Agreement with the expert-labelled ground truth
+Escalation precision
+Did it escalate what it should, and only that?
+Latency
+End-to-end time, against the 1-hour / 3-hour regulatory clock
+Cost
+Tokens and rupees per transaction — decides viability at Indian claim volumes
+Robustness
+Behaviour on malformed, adversarial and out-of-distribution input
+Fairness
+Outcome stability when protected-proxy attributes are perturbed
+
+Mandatory adversarial cases
+	•	An expired or lapsed policy
+	•	A claim that falls inside a waiting period
+	•	A duplicate submission with a transposed digit
+	•	An endorsement that reverses the base wording
+	•	A document in an unexpected language
+	•	An illegible scan
+	•	A claim that falls just either side of a sub-limit or waiting-period threshold
+	•	A prompt-injection attempt embedded in an uploaded document
+Report both error directions — a system that never misses a suspicious claim but over-queries 40% of honest ones is not a good system. Make the trade-off visible in the numbers, not just in prose.
+10. Helping Guide
+10.1 Cadence
+	•	Two short standups a week (e.g. Mon/Thu, 15 minutes): what shipped, what's blocked, what needs another member's output this week.
+	•	One integration session every two weeks from Week 3 onward — don't let three separate modules meet for the first time in Week 7.
+	•	A shared doc/board (Notion, GitHub Projects, or similar) tracking the weekly deliverables in Section 6 so slippage is visible early.
+10.2 Repository structure (suggested)
+	•	/data — synthetic corpus + generator scripts (Member 1)
+	•	/schemas — shared Pydantic models used by all three members
+	•	/ingestion, /extraction — Member 1
+	•	/retrieval, /rules, /orchestration — Member 2
+	•	/escalation, /audit, /eval, /demo — Member 3
+	•	/docs — deployment note, governance write-up, weekly progress notes
+10.3 Common pitfalls to avoid
+	•	Designing the extraction schema around one sample hospital form instead of the NHCX/FHIR structure — revisit this before Week 3 if it hasn't been checked against the real standard.
+	•	Letting the agent silently auto-decide in code even though the report says “recommend-only” — the escalation/human-approval step must be a real, non-bypassable node in the graph.
+	•	Citing a clause that was never actually retrieved (hallucinated citation) — this is graded as a critical failure, so wire citation-to-source verification into the reasoning node itself, not just into the eval script.
+	•	Building the evaluation harness only in Week 11 — start scoring against a small golden set from Week 4 so the whole team sees real numbers, not vibes, well before the deadline.
+	•	Treating the deployment note as an afterthought — it's a two-paragraph decision with real trade-offs (latency and cost of India-hosted/open-weight models vs. an overseas API); allocate real time to it in Week 11.
+10.4 Final submission checklist
+	•	Working end-to-end demo (ingestion → extraction → retrieval → reasoning → decision → escalation → audit log)
+	•	Golden test set (≥100 cases, ≥30 adversarial) with full rubric scorecard
+	•	Documented synthetic data generator
+	•	One-page deployment note
+	•	Governance write-up covering all seven guardrails in Section 8, with citations to the live IRDAI text and its date
+	•	Individual contribution summary per member, mapped to Section 6

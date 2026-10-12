@@ -1,0 +1,36 @@
+BENEFIT SCHEDULE: WAITING PERIOD MATRIX
+Effective from: 01-April-2024
+Insurer: Synthetic Insurance Co. Ltd.
+
+Waiting Period by Type and Plan:
++-----------------------------+-----------+----------+---------+----------+
+| Waiting Period Type         | Indiv/FF  | Group    | SC      | CI       |
++-----------------------------+-----------+----------+---------+----------+
+| Initial (all illnesses)     | 30 days   | Waived   | 30 days | 90 days  |
+| Specific Disease (listed)   | 24 months | Waived*  | 24 mo   | N/A      |
+| Pre-Existing Disease (PED)  | 48 months | 12 mo**  | 48 mo   | 48 mo    |
+| Maternity                   | 36 months | 12 mo    | N/A     | N/A      |
+| Moratorium (all diseases)   | 8 years   | 8 years  | 8 years | 8 years  |
++-----------------------------+-----------+----------+---------+----------+
+
+* Waived for groups with 100+ lives.
+** Reduced to 12 months for groups with 500+ lives.
+
+Specific Disease List (24-month waiting period):
+ICD-10  | Disease
+--------|--------------------------------------------------
+H25-H26 | Cataract
+K40-K46 | Hernia (all types)
+N40     | Benign Prostatic Hypertrophy (BPH)
+K80     | Cholelithiasis (Gallstones)
+N20-N21 | Urolithiasis (Kidney / Ureter Stones)
+M17     | Gonarthrosis (Knee Osteoarthritis)
+J34     | Nasal Septum Deviation / Chronic Sinusitis
+I84     | Haemorrhoids / Piles
+H40     | Glaucoma
+
+Waiting Period Calculation:
+- Start date: Date of commencement of FIRST policy period (not renewal).
+- Continuous coverage required — any break resets waiting periods.
+- Portability: Waiting period credit given for prior continuous coverage
+  with another insurer, as per IRDAI Portability Guidelines.

@@ -1,0 +1,32 @@
+BENEFIT SCHEDULE: CO-PAYMENT STRUCTURE
+Effective from: 01-April-2024
+Insurer: Synthetic Insurance Co. Ltd.
+
+Co-Payment Rules:
+1. Co-payment is calculated on the ADMISSIBLE claim amount AFTER:
+   - Deduction of non-payable items (IRDAI Lists I-IV)
+   - Application of sub-limit capping
+   - Application of proportionate deductions (if any)
+
+2. Co-payment by Plan Type and Age:
+   +---------------------+--------+--------+--------+
+   | Plan Type           | <60 yr | 60-70  | >70 yr |
+   +---------------------+--------+--------+--------+
+   | Individual          | 0%     | 10%    | 20%    |
+   | Family Floater      | 0%     | 10%    | 20%    |
+   | Group               | 0%     | 0%     | 0%     |
+   | Senior Citizen      | 20%    | 20%    | 20%    |
+   +---------------------+--------+--------+--------+
+
+3. Voluntary Co-payment Options (premium discount):
+   - 10% voluntary co-pay → 10% premium discount
+   - 20% voluntary co-pay → 20% premium discount
+   - 25% voluntary co-pay → 25% premium discount
+
+4. Non-Network Hospital Co-payment:
+   Additional 20% co-payment applies for treatment at non-network hospitals
+   (added to any existing mandatory/voluntary co-payment).
+
+5. Deductible (Top-Up / Super Top-Up):
+   Applied BEFORE co-payment. The deductible amount is the insured's
+   self-retention and is not eligible for co-payment calculation.

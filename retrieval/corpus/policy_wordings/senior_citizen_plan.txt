@@ -1,0 +1,25 @@
+POLICY WORDING: SENIOR CITIZEN HEALTH INSURANCE
+Policy Type: Senior Citizen
+Insurer: Synthetic Insurance Co. Ltd.
+Product: HealthGuard Senior Shield
+UIN: SYNTH-SC-HLT-004/V1/2024
+
+SECTION 1 — ELIGIBILITY
+1.1 Entry age: 60 years to 80 years. Renewal available lifelong.
+1.2 Pre-policy medical screening is mandatory for all applicants.
+
+SECTION 2 — SUM INSURED AND LIMITS
+2.1 Sum Insured options: Rs. 2,00,000 / Rs. 3,00,000 / Rs. 5,00,000
+2.2 Room Rent: Rs. 4,000/day for SI up to Rs. 3,00,000; Rs. 5,000/day
+for SI of Rs. 5,00,000.
+
+SECTION 3 — MANDATORY CO-PAYMENT
+3.1 All claims are subject to a mandatory co-payment of 20%.
+3.2 This co-payment is non-waivable and applies after sub-limit deductions.
+
+SECTION 4 — DISEASE-SPECIFIC SUB-LIMITS
+4.1 Cataract Surgery: Maximum Rs. 40,000 per eye (inclusive of lens, IOL,
+surgery charges, pre and post-operative care).
+4.2 Knee Replacement: Maximum Rs. 1,50,000 per knee.
+4.3 CABG / Cardiac Surgery: Maximum Rs. 3,00,000.
+4.4 Dialysis: Maximum Rs. 2,000 per session, limited to 24 sessions per year.

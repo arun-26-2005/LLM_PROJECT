@@ -1,0 +1,206 @@
+[
+  {
+    "text": "BENEFIT SCHEDULE: CO-PAYMENT STRUCTURE\nEffective from: 01-April-2024\nInsurer: Synthetic Insurance Co. Ltd. Co-Payment Rules:\n1. Co-payment is calculated on the ADMISSIBLE claim amount AFTER:\n   - Deduction of non-payable items (IRDAI Lists I-IV)\n   - Application of sub-limit capping\n   - Application of proportionate deductions (if any) 2. Co-payment by Plan Type and Age:\n   +---------------------+--------+--------+--------+\n   | Plan Type           | <60 yr | 60-70  | >70 yr |\n   +---------------------+--------+--------+--------+\n   | Individual          | 0%     | 10%    | 20%    |\n   | Family Floater      | 0%     | 10%    | 20%    |\n   | Group               | 0%     | 0%     | 0%     |\n   | Senior Citizen      | 20%    | 20%    | 20%    |\n   +---------------------+--------+--------+--------+ 3. Voluntary Co-payment Options (premium discount):\n   - 10% voluntary co-pay → 10% premium discount\n   - 20% voluntary co-pay → 20% premium discount\n   - 25% voluntary co-pay → 25% premium discount 4. Non-Network Hospital Co-payment:\n   Additional 20% co-payment applies for treatment at non-network hospitals\n   (added to any existing mandatory/voluntary co-payment). 5. Deductible (Top-Up / Super Top-Up):\n   Applied BEFORE co-payment. The deductible amount is the insured's\n   self-retention and is not eligible for co-payment calculation.",
+    "metadata": {
+      "source_file": "benefit_tables/copay_schedule.txt",
+      "section": "",
+      "chunk_id": "benefit_tables/copay_schedule.txt::chunk_0000",
+      "document_type": "benefit_table",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "BENEFIT SCHEDULE: DISEASE-SPECIFIC AND PROCEDURE SUB-LIMITS\nEffective from: 01-April-2024\nInsurer: Synthetic Insurance Co. Ltd. +-----------------------------+-------------------+--------------+\n| Procedure / Disease         | Sub-Limit (Max)   | Plan Types   |\n+-----------------------------+-------------------+--------------+\n| Cataract (per eye)          | Rs. 40,000        | Indiv, FF, SC|\n| Knee Replacement (per knee) | Rs. 1,50,000      | Indiv, FF, SC|\n| CABG / Open Heart Surgery   | Rs. 3,00,000      | SC only      |\n| Dialysis (per session)      | Rs. 2,000         | All plans    |\n| Dialysis (annual sessions)  | 24 sessions/year  | All plans    |\n| Maternity - Normal Delivery | Rs. 50,000        | FF only      |\n| Maternity - Caesarean        | Rs. 75,000        | FF only      |\n| Ambulance Charges           | Rs. 2,000/event   | All plans    |\n| Dental (accident only)      | Rs. 25,000        | All plans    |\n+-----------------------------+-------------------+--------------+ Notes:\n1. Sub-limits apply independently of the overall Sum Insured. 2. For Group Plans with 100+ lives, disease-specific sub-limits may be waived. 3. Sub-limits are applied BEFORE co-payment calculation.",
+    "metadata": {
+      "source_file": "benefit_tables/disease_sublimits_schedule.txt",
+      "section": "",
+      "chunk_id": "benefit_tables/disease_sublimits_schedule.txt::chunk_0000",
+      "document_type": "benefit_table",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "BENEFIT SCHEDULE: ROOM RENT AND ICU SUB-LIMITS\nEffective from: 01-April-2024\nInsurer: Synthetic Insurance Co. Ltd. Room Rent Sub-Limits by Sum Insured:\n+------------------+---------------------+-------------------+\n| Sum Insured (SI) | Room Rent Limit/Day | ICU Limit/Day     |\n+------------------+---------------------+-------------------+\n| Up to Rs. 2L     | Rs. 2,000           | Rs. 4,000         |\n| Rs. 2L - Rs. 3L  | Rs. 3,000           | Rs. 6,000         |\n| Rs. 3L - Rs. 5L  | Rs. 5,000           | Rs. 10,000        |\n| Rs. 5L - Rs. 10L | Rs. 7,500           | Rs. 15,000        |\n| Rs. 10L - Rs. 25L| Rs. 10,000          | Rs. 20,000        |\n| Above Rs. 25L    | No Sub-Limit        | No Sub-Limit      |\n+------------------+---------------------+-------------------+ Proportionate Deduction Formula:\nWhen actual room rent exceeds the eligible limit:\n  Eligible Proportion = (Room Rent Limit) / (Actual Room Rent Charged)\n  Proportionate Deduction applies to:\n    - Surgeon Fee\n    - Anaesthesia Fee\n    - Consultation Fee\n    - Diagnostic Charges\n    - Pharmacy Charges Example:\n  Policy SI: Rs. 5,00,000 → Room Rent Limit: Rs. 5,000/day\n  Hospital charges Rs. 8,000/day room rent. Eligible Proportion = 5000/8000 = 0.625 (62.5%)\n  Surgeon Fee Rs. 50,000 → Eligible: Rs. 50,000 × 0.625 = Rs. 31,250\n  Deducted: Rs. 50,000 - Rs. 31,250 = Rs. 18,750",
+    "metadata": {
+      "source_file": "benefit_tables/room_rent_schedule.txt",
+      "section": "",
+      "chunk_id": "benefit_tables/room_rent_schedule.txt::chunk_0000",
+      "document_type": "benefit_table",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "BENEFIT SCHEDULE: WAITING PERIOD MATRIX\nEffective from: 01-April-2024\nInsurer: Synthetic Insurance Co. Ltd. Waiting Period by Type and Plan:\n+-----------------------------+-----------+----------+---------+----------+\n| Waiting Period Type         | Indiv/FF  | Group    | SC      | CI       |\n+-----------------------------+-----------+----------+---------+----------+\n| Initial (all illnesses)     | 30 days   | Waived   | 30 days | 90 days  |\n| Specific Disease (listed)   | 24 months | Waived*  | 24 mo   | N/A      |\n| Pre-Existing Disease (PED)  | 48 months | 12 mo**  | 48 mo   | 48 mo    |\n| Maternity                   | 36 months | 12 mo    | N/A     | N/A      |\n| Moratorium (all diseases)   | 8 years   | 8 years  | 8 years | 8 years  |\n+-----------------------------+-----------+----------+---------+----------+ * Waived for groups with 100+ lives. ** Reduced to 12 months for groups with 500+ lives. Specific Disease List (24-month waiting period):\nICD-10  | Disease\n--------|--------------------------------------------------\nH25-H26 | Cataract\nK40-K46 | Hernia (all types)\nN40     | Benign Prostatic Hypertrophy (BPH)\nK80     | Cholelithiasis (Gallstones)\nN20-N21 | Urolithiasis (Kidney / Ureter Stones)\nM17     | Gonarthrosis (Knee Osteoarthritis)\nJ34     | Nasal Septum Deviation / Chronic Sinusitis\nI84     | Haemorrhoids / Piles\nH40     | Glaucoma Waiting Period Calculation:\n- Start date: Date of commencement of FIRST policy period (not renewal). - Continuous coverage required — any break resets waiting periods. - Portability: Waiting period credit given for prior continuous coverage\n  with another insurer, as per IRDAI Portability Guidelines.",
+    "metadata": {
+      "source_file": "benefit_tables/waiting_period_matrix.txt",
+      "section": "",
+      "chunk_id": "benefit_tables/waiting_period_matrix.txt::chunk_0000",
+      "document_type": "benefit_table",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "PROCEDURE GUIDELINES: CARDIAC — STEMI / MYOCARDIAL INFARCTION (ICD-10: I21)\nApplicable to all plan types under Synthetic Insurance Co. Ltd. 1. COVERAGE CRITERIA\n1.1 Acute ST-Elevation Myocardial Infarction (STEMI) is covered as Emergency\nhospitalization. Pre-authorisation request must be submitted within 24 hours. 1.2 Procedures covered: Primary PCI (percutaneous coronary intervention),\nthrombolysis, CABG (coronary artery bypass graft). 2. SUB-LIMITS\n2.1 Stent Cost: Drug-eluting stent (DES) covered up to NPPA ceiling price. - As per NPPA notification (effective 2017): DES ceiling price Rs. 30,000. - Bare metal stent (BMS): Rs. 7,000. 2.2 CABG: No specific sub-limit — covered under overall Sum Insured. 2.3 ICU charges: Maximum 2% of Sum Insured per day. 3. WAITING PERIOD\n3.1 No specific disease waiting period for cardiac emergencies. 3.2 PED waiting period applies if patient has documented history of\nischaemic heart disease prior to policy inception (4-year exclusion). 4. NON-PAYABLE ITEMS\n4.1 External cardiac monitoring devices post-discharge — non-payable. 4.2 Cardiac rehabilitation program fees — non-payable under standard plans.",
+    "metadata": {
+      "source_file": "policy_wordings/cardiac_stemi_guidelines.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/cardiac_stemi_guidelines.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "PROCEDURE GUIDELINES: CATARACT SURGERY (ICD-10: H25, H26)\nApplicable to all plan types under Synthetic Insurance Co. Ltd. 1. COVERAGE CRITERIA\n1.1 Cataract surgery is covered under Day Care Procedures (Annexure A, Item 17). 1.2 Both phacoemulsification with IOL implantation and manual SICS are covered. 1.3 Coverage includes pre-operative investigations, surgical procedure, IOL\ncost, post-operative medications for up to 6 weeks. 2. SUB-LIMITS\n2.1 Individual and Family Floater Plans: Maximum Rs. 40,000 per eye. 2.2 Senior Citizen Plans: Maximum Rs. 40,000 per eye. 2.3 Group Plans: No sub-limit (covered under overall Sum Insured). 3. WAITING PERIOD\n3.1 Subject to 24-month specific disease waiting period from first policy inception. 3.2 Waived for Group policies with 100+ lives. 4. SPECIAL CONDITIONS\n4.1 Both eyes cannot be operated in the same sitting. A minimum gap of\n15 days between surgeries for the two eyes is required. 4.2 IOL (Intraocular Lens) cost: Standard monofocal IOL is fully covered. Premium multifocal/toric IOL: covered up to Rs. 20,000 per eye, balance\nborne by the insured. 5. NON-PAYABLE ITEMS FOR CATARACT SURGERY\n5.1 Eye pads, eye shields, and sunglasses post-surgery — non-payable. 5.2 Lubricant eye drops beyond the prescribed post-operative period — non-payable.",
+    "metadata": {
+      "source_file": "policy_wordings/cataract_procedure_guidelines.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/cataract_procedure_guidelines.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: CRITICAL ILLNESS BENEFIT PLAN\nPolicy Type: Critical Illness\nInsurer: Synthetic Insurance Co. Ltd. Product: HealthGuard Critical Care\nUIN: SYNTH-CI-HLT-007/V1/2024 SECTION 1 — BENEFIT STRUCTURE\n1.1 This is a fixed-benefit plan. Upon first diagnosis of a covered Critical\nIllness, the entire Sum Insured is payable as a lump sum, irrespective of\nactual treatment cost. 1.2 Covered Critical Illnesses (37 conditions):\n    - STEMI / Myocardial Infarction (ICD-10: I21)\n    - Stroke (ICD-10: I63, I64)\n    - Cancer (ICD-10: C00-C97)\n    - End-Stage Renal Disease (ICD-10: N18.5, N18.6)\n    - Major Organ Transplant\n    - Coronary Artery Bypass Graft (CABG)\n    - Open Heart Surgery / Valve Replacement 1.3 Survival Period: The insured must survive for at least 30 days after\nthe date of first diagnosis of the Critical Illness. SECTION 2 — WAITING PERIODS\n2.1 Initial waiting period: 90 days from the date of commencement. 2.2 No specific disease waiting period applicable. 2.3 PED exclusion: Any Critical Illness that is a direct consequence of\na pre-existing disease diagnosed before policy inception is excluded\nfor the first 48 months.",
+    "metadata": {
+      "source_file": "policy_wordings/critical_illness_plan.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/critical_illness_plan.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: FAMILY FLOATER HEALTH INSURANCE\nPolicy Type: Family Floater\nInsurer: Synthetic Insurance Co. Ltd. Product: HealthGuard Family Floater Plan\nUIN: SYNTH-FF-HLT-002/V1/2024 SECTION 1 — FAMILY FLOATER PROVISIONS\n1.1 The Sum Insured specified in the Policy Schedule is the combined maximum\nliability of the Company for all Insured Persons covered under this policy\nduring any one policy year. Any claim by one Insured Person reduces the Sum\nInsured available for all other Insured Persons. 1.2 The primary policyholder's age determines the premium. The oldest member\nof the family is considered the primary insured for underwriting purposes. SECTION 2 — SUM INSURED TIERS AND ROOM RENT\n2.1 Sum Insured options: Rs. 3,00,000 / Rs. 5,00,000 / Rs. 10,00,000 / Rs. 25,00,000\n2.2 Room Rent Sub-Limit:\n    - Sum Insured up to Rs. 5,00,000: Rs. 5,000 per day (General Ward) or\n      1% of SI, whichever is lower. - Sum Insured Rs. 5,00,001 to Rs. 10,00,000: Rs. 7,500 per day or\n      1% of SI, whichever is lower. - Sum Insured above Rs. 10,00,000: No room rent sub-limit (Single AC Room). 2.3 ICU Charges: ICU charges limited to 2x the applicable room rent sub-limit. 2.4 Proportionate Deduction: If actual room rent exceeds the eligible room rent,\nproportionate deduction shall apply to surgeon fees, anaesthesia, consultation,\ndiagnostics, and pharmacy charges in the ratio: (eligible room rent / actual room rent). SECTION 3 — WAITING PERIODS\n3.1 All waiting period provisions follow the Standard Individual Plan\n(Reference: SYNTH-IND-HLT-001, Section 3). 3.2 Additional Maternity Waiting Period: Maternity expenses including normal\ndelivery, caesarean section, and pre/post-natal expenses are covered only\nafter completion of 36 continuous months (3 years) from the date of\ncommencement of the first policy period. Maximum limit: Rs. 50,000 for\nnormal delivery, Rs. 75,000 for caesarean section. SECTION 4 — CO-PAYMENT\n4.1 No mandatory co-payment for ages below 60 years. 4.2 Mandatory 10% co-payment for members aged 60-70 years. 4.3 Mandatory 20% co-payment for members aged above 70 years. 4.4 Voluntary co-payment options (10%, 20%, 25%) available for premium discount.",
+    "metadata": {
+      "source_file": "policy_wordings/family_floater_plan.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/family_floater_plan.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: GROUP HEALTH INSURANCE (CORPORATE)\nPolicy Type: Group\nInsurer: Synthetic Insurance Co. Ltd. Product: HealthGuard Corporate Shield\nUIN: SYNTH-GRP-HLT-003/V1/2024 SECTION 1 — GROUP POLICY PROVISIONS\n1.1 This policy is issued to the Employer (Master Policyholder) for the benefit\nof eligible employees and their declared dependents. 1.2 Waiver of Initial Waiting Period: The initial 30-day waiting period\nis waived for all covered members from the date of joining the group scheme. 1.3 Waiver of Specific Disease Waiting Period: The 24-month specific disease\nwaiting period is waived for group policies covering 100 or more lives. 1.4 Pre-Existing Disease: PED waiting period is reduced to 12 months\n(from the standard 48 months) for group policies covering 500 or more lives. SECTION 2 — SUM INSURED AND LIMITS\n2.1 Sum Insured: As specified in the Group Policy Schedule, typically\nRs. 3,00,000 / Rs. 5,00,000 per employee per policy year. 2.2 Room Rent: Single occupancy room (no sub-limit) for Sum Insured of\nRs. 5,00,000 and above. For lower Sum Insured, Rs. 5,000/day limit applies. SECTION 3 — CO-PAYMENT\n3.1 No co-payment applicable for network hospital treatment. 3.2 For non-network hospitals, a 20% co-payment applies on the total\nadmissible claim amount.",
+    "metadata": {
+      "source_file": "policy_wordings/group_corporate_plan.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/group_corporate_plan.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: STANDARD INDIVIDUAL HEALTH INSURANCE\nPolicy Type: Individual\nInsurer: Synthetic Insurance Co. Ltd. Product: HealthGuard Individual Plan\nUIN: SYNTH-IND-HLT-001/V1/2024 SECTION 1 — SCOPE OF COVER\n1.1 This policy covers the Insured Person against financial loss arising from\nhospitalization necessitated by illness or accidental bodily injury during\nthe policy period, subject to the terms, conditions, and exclusions herein. 1.2 Coverage is available for hospitalization requiring a minimum continuous\nperiod of 24 hours as an inpatient in a hospital, except for Day Care\nProcedures listed in Annexure A. SECTION 2 — SUM INSURED AND LIMITS\n2.1 The maximum liability of the Company shall not exceed the Sum Insured\nstated in the Policy Schedule for any one policy year. 2.2 Room Rent Sub-Limit: The daily room rent charges payable shall not exceed\n1% of the Sum Insured or the amount specified in the Policy Schedule,\nwhichever is lower. 2.3 ICU Charges: ICU charges shall not exceed 2% of the Sum Insured per day. 2.4 Proportionate Deduction: If the actual room rent exceeds the eligible\nroom rent limit, all other admissible charges (surgeon fees, anaesthesia\ncharges, consultation fees, diagnostics, pharmacy) shall be reduced in the\nsame proportion as the eligible room rent bears to the actual room rent\ncharged by the hospital. 2.5 Ambulance Charges: Emergency ambulance charges are covered up to a maximum\nof Rs. 2,000 per hospitalization. SECTION 3 — WAITING PERIODS\n3.1 Initial Waiting Period: No claim shall be admissible during the first 30\ndays of the first policy period, except claims arising from an accident. 3.2 Specific Disease Waiting Period: Claims arising from the following diseases\nand treatments shall be admissible only after completion of 24 continuous months\n(2 years) from the date of commencement of the first policy period:\n    a) Cataract (ICD-10: H25, H26)\n    b) Hernia of all types (ICD-10: K40-K46)\n    c) Benign Prostatic Hypertrophy (ICD-10: N40)\n    d) Cholelithiasis / Gallstones (ICD-10: K80)\n    e) Kidney Stones / Urolithiasis (ICD-10: N20, N21)\n    f) Joint Replacement Surgery (ICD-10: M17)\n    g) Sinusitis and related conditions (ICD-10: J34)\n    h) Internal Congenital Anomalies\n    i) Haemorrhoids / Piles (ICD-10: I84)",
+    "metadata": {
+      "source_file": "policy_wordings/individual_health_standard.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/individual_health_standard.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "3.2 Specific Disease Waiting Period: Claims arising from the following diseases\nand treatments shall be admissible only after completion of 24 continuous months\n(2 years) from the date of commencement of the first policy period:\n    a) Cataract (ICD-10: H25, H26)\n    b) Hernia of all types (ICD-10: K40-K46)\n    c) Benign Prostatic Hypertrophy (ICD-10: N40)\n    d) Cholelithiasis / Gallstones (ICD-10: K80)\n    e) Kidney Stones / Urolithiasis (ICD-10: N20, N21)\n    f) Joint Replacement Surgery (ICD-10: M17)\n    g) Sinusitis and related conditions (ICD-10: J34)\n    h) Internal Congenital Anomalies\n    i) Haemorrhoids / Piles (ICD-10: I84) 3.3 Pre-Existing Disease (PED) Waiting Period: Any condition, ailment, injury\nor disease that is diagnosed or for which medical advice or treatment was\nrecommended or received by the Insured Person prior to inception of the first\npolicy shall be covered only after completion of 48 continuous months (4 years)\nfrom the date of commencement of the first policy period. 3.4 Moratorium Period: After completion of 8 continuous years under the policy,\nno claim shall be contestable on the ground that a disease or condition was\npre-existing at the time of taking the policy, except for proven fraud. SECTION 4 — CO-PAYMENT\n4.1 The Insured Person shall bear a co-payment as a percentage of every\nadmissible claim, as specified in the Policy Schedule. 4.2 Co-payment shall be calculated on the admissible claim amount after\ndeduction of any non-payable items and sub-limit capping. 4.3 For Senior Citizen plans (entry age 60+), a mandatory co-payment of\nnot less than 10% shall apply unless waived by the Company. SECTION 5 — EXCLUSIONS\n5.1 Permanent Exclusions: The following are permanently excluded and shall\nnot be covered under this policy under any circumstances:\n    a) Cosmetic or aesthetic treatment or surgery\n    b) Self-inflicted injuries or attempted suicide\n    c) Treatment for alcoholism or drug/substance abuse\n    d) War, invasion, act of foreign enemy, terrorism\n    e) Nuclear contamination or radioactive exposure\n    f) Hazardous or adventure sports injuries\n    g) Treatments for change of sex / gender reassignment\n    h) Vaccination and inoculation (unless post-bite)\n    i) Weight management / obesity treatment (unless morbid obesity with BMI > 40) SECTION 6 — CASHLESS FACILITY\n6.1 Cashless facility is available at Network Hospitals empanelled with the\nCompany's Third Party Administrator (TPA). 6.2 Pre-Authorisation Request: For planned hospitalization, a pre-authorisation\nrequest must be submitted to the TPA at least 48-72 hours prior to admission.",
+    "metadata": {
+      "source_file": "policy_wordings/individual_health_standard.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/individual_health_standard.txt::chunk_0001",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "SECTION 5 — EXCLUSIONS\n5.1 Permanent Exclusions: The following are permanently excluded and shall\nnot be covered under this policy under any circumstances:\n    a) Cosmetic or aesthetic treatment or surgery\n    b) Self-inflicted injuries or attempted suicide\n    c) Treatment for alcoholism or drug/substance abuse\n    d) War, invasion, act of foreign enemy, terrorism\n    e) Nuclear contamination or radioactive exposure\n    f) Hazardous or adventure sports injuries\n    g) Treatments for change of sex / gender reassignment\n    h) Vaccination and inoculation (unless post-bite)\n    i) Weight management / obesity treatment (unless morbid obesity with BMI > 40) SECTION 6 — CASHLESS FACILITY\n6.1 Cashless facility is available at Network Hospitals empanelled with the\nCompany's Third Party Administrator (TPA). 6.2 Pre-Authorisation Request: For planned hospitalization, a pre-authorisation\nrequest must be submitted to the TPA at least 48-72 hours prior to admission. For emergency hospitalization, the request must be submitted within 24 hours\nof admission. 6.3 Decision Timeline: As per IRDAI Master Circular on Health Insurance\n(IRDAI/HLT/CIR/MISC/116/05/2024, dated 29-May-2024), the initial\npre-authorisation decision shall be communicated within 1 hour of receipt\nof the request with all necessary documents. Final authorization upon\ndischarge shall be communicated within 3 hours. 6.4 Non-Network Hospitals: Treatment at non-network hospitals is covered\non a reimbursement basis only, unless emergency pre-authorisation exception\nis granted by the Company. SECTION 7 — POLICY STATUS\n7.1 Active Policy: Claims are admissible only when the policy is in active\nstatus with all due premiums paid. 7.2 Lapsed Policy: If the premium due is not paid within the grace period of\n30 days, the policy shall lapse. No claims arising during the lapsed period\nshall be admissible. 7.3 Expired Policy: Upon expiry of the policy period, no new claims shall be\nadmissible unless the policy is renewed within the grace period.",
+    "metadata": {
+      "source_file": "policy_wordings/individual_health_standard.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/individual_health_standard.txt::chunk_0002",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: SENIOR CITIZEN HEALTH INSURANCE\nPolicy Type: Senior Citizen\nInsurer: Synthetic Insurance Co. Ltd. Product: HealthGuard Senior Shield\nUIN: SYNTH-SC-HLT-004/V1/2024 SECTION 1 — ELIGIBILITY\n1.1 Entry age: 60 years to 80 years. Renewal available lifelong. 1.2 Pre-policy medical screening is mandatory for all applicants. SECTION 2 — SUM INSURED AND LIMITS\n2.1 Sum Insured options: Rs. 2,00,000 / Rs. 3,00,000 / Rs. 5,00,000\n2.2 Room Rent: Rs. 4,000/day for SI up to Rs. 3,00,000; Rs. 5,000/day\nfor SI of Rs. 5,00,000. SECTION 3 — MANDATORY CO-PAYMENT\n3.1 All claims are subject to a mandatory co-payment of 20%. 3.2 This co-payment is non-waivable and applies after sub-limit deductions. SECTION 4 — DISEASE-SPECIFIC SUB-LIMITS\n4.1 Cataract Surgery: Maximum Rs. 40,000 per eye (inclusive of lens, IOL,\nsurgery charges, pre and post-operative care). 4.2 Knee Replacement: Maximum Rs. 1,50,000 per knee. 4.3 CABG / Cardiac Surgery: Maximum Rs. 3,00,000. 4.4 Dialysis: Maximum Rs. 2,000 per session, limited to 24 sessions per year.",
+    "metadata": {
+      "source_file": "policy_wordings/senior_citizen_plan.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/senior_citizen_plan.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "POLICY WORDING: TOP-UP AND SUPER TOP-UP PLANS\nPolicy Type: Top-Up / Super Top-Up\nInsurer: Synthetic Insurance Co. Ltd. TOP-UP PLAN (SYNTH-TU-HLT-005/V1/2024):\n1.1 A Top-Up plan activates when any single claim in a policy year exceeds\nthe specified Deductible amount. 1.2 Deductible options: Rs. 3,00,000 / Rs. 5,00,000 / Rs. 10,00,000\n1.3 Sum Insured (above deductible): Rs. 10,00,000 / Rs. 25,00,000 / Rs. 50,00,000\n1.4 Only the amount exceeding the deductible in a single claim is payable. SUPER TOP-UP PLAN (SYNTH-STU-HLT-006/V1/2024):\n2.1 A Super Top-Up plan activates when the aggregate of all claims in a\npolicy year exceeds the specified Deductible amount. 2.2 Unlike Top-Up, multiple smaller claims can aggregate to breach the deductible. 2.3 Deductible options: Rs. 3,00,000 / Rs. 5,00,000\n2.4 Sum Insured: Rs. 15,00,000 / Rs. 25,00,000 / Rs. 50,00,000",
+    "metadata": {
+      "source_file": "policy_wordings/top_up_super_top_up.txt",
+      "section": "",
+      "chunk_id": "policy_wordings/top_up_super_top_up.txt::chunk_0000",
+      "document_type": "policy_wording",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "IRDAI ENFORCEMENT GUIDANCE: CASHLESS PRE-AUTHORISATION TIMELINES\nReference: IRDAI/HLT/CIR/MISC/116/05/2024, Chapter VI, Sections 36-38\nDate: 29-May-2024\nSource: Insurance Regulatory and Development Authority of India (IRDAI) REGULATORY COMPLIANCE REQUIREMENTS: 1. ONE-HOUR CLOCK:\n   The pre-authorisation decision must be communicated to the network\n   provider within 60 minutes of receipt of the request with all\n   necessary supporting documents. This is a hard compliance obligation,\n   not a service-level aspiration. 2. THREE-HOUR CLOCK:\n   Final discharge authorization must be communicated within 3 hours of\n   receipt of the final bill and discharge summary. 3. CONSEQUENCES OF NON-COMPLIANCE:\n   3.1 Deemed approval: If the insurer fails to communicate within the\n   stipulated time, the claim is deemed approved. 3.2 Regulatory action: Persistent non-compliance may attract regulatory\n   action under Section 102 of the Insurance Act, 1938. 4. SINGLE-QUERY RULE:\n   All queries must be raised in a single communication. Serial queries\n   on the same claim are treated as poor claims practice and are subject\n   to penalty. 5. DOCUMENT REQUIREMENTS:\n   The following documents are considered \"necessary\" for pre-auth decision:\n   a) Duly filled pre-authorization form\n   b) Doctor's prescription / case sheet recommending hospitalization\n   c) Photo ID proof of insured person\n   d) Health card / policy number\n   e) Investigation reports supporting the diagnosis 6. RECOMMEND-ONLY AUTOMATED SYSTEMS:\n   Any automated system assisting in pre-authorisation decisions must\n   operate in a \"recommend-only\" mode. The final decision authority\n   rests with the insurer's authorized medical officer or claims\n   team. Automated systems shall not auto-approve or auto-deny claims.",
+    "metadata": {
+      "source_file": "irdai_circulars/irdai_cashless_timeline_enforcement.txt",
+      "section": "",
+      "chunk_id": "irdai_circulars/irdai_cashless_timeline_enforcement.txt::chunk_0000",
+      "document_type": "irdai_circular",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "IRDAI MASTER CIRCULAR ON HEALTH INSURANCE BUSINESS\nCircular No.: IRDAI/HLT/CIR/MISC/116/05/2024\nDate: 29-May-2024\nSource: Insurance Regulatory and Development Authority of India (IRDAI)\nURL: https://www.irdai.gov.in/admincms/cms/frmGeneral_Layout.aspx?page=PageNo5659 CHAPTER VI — CASHLESS FACILITY AND CLAIMS SETTLEMENT Section 36 — Cashless Authorization Timelines:\n36.1 Pre-Authorization Decision: The insurer or its TPA shall communicate the\npre-authorization decision within ONE HOUR of receipt of the pre-authorization\nrequest along with all necessary documents from the network provider. 36.2 Enhancement / Final Authorization: Upon discharge of the insured from the\nhospital, the insurer or TPA shall communicate the final authorization within\nTHREE HOURS of receipt of the final bill and discharge summary. 36.3 If the insurer fails to communicate within the stipulated time, the claim\nshall be deemed to be approved for the amount requested, subject to policy\nterms and conditions. Section 37 — Query Communication:\n37.1 If additional information is required, the insurer shall raise a query\nin a single communication and not in multiple rounds. Multiple rounds of\nqueries for the same claim constitute poor claims servicing. 37.2 The insured shall be given a reasonable time of not less than 15 days\nto respond to any query. Section 38 — Claim Settlement:\n38.1 Claims shall be settled within 30 days of receipt of the last necessary\ndocument from the insured or the hospital. 38.2 In case of delay beyond 30 days, interest at the rate of 2% above the\nbank rate shall be payable from the date of receipt of last document to the\ndate of payment. CHAPTER VII — STANDARDIZATION AND REFORM Section 42 — National Health Claims Exchange (NHCX):\n42.1 All insurers shall mandatorily onboard the National Health Claims Exchange\nplatform operated by the National Health Authority (NHA). 42.2 Claims data exchange shall follow the FHIR (Fast Healthcare Interoperability\nResources) standard as specified by NHA. Section 43 — Pre-Existing Disease Definition:\n43.1 Pre-Existing Disease (PED) means any condition, ailment, injury or disease:\n    a) That is/are diagnosed by a physician within 48 months prior to the\n       effective date of the policy issued by the insurer, OR\n    b) For which medical advice or treatment was recommended by, or received\n       from, a physician within 48 months prior to the effective date of the\n       policy issued by the insurer. 43.2 The standard moratorium period of 8 continuous years applies, after which\nno claim shall be contestable for pre-existing disease, except in cases of\nproven fraud or moral hazard.",
+    "metadata": {
+      "source_file": "irdai_circulars/irdai_master_circular_health_2024.txt",
+      "section": "",
+      "chunk_id": "irdai_circulars/irdai_master_circular_health_2024.txt::chunk_0000",
+      "document_type": "irdai_circular",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  },
+  {
+    "text": "IRDAI GUIDELINES ON NON-PAYABLE ITEMS IN HEALTH INSURANCE\nReference: IRDAI/HLT/REG/CIR/XXX/10/2019 (as updated by Master Circular 2024)\nCircular No.: IRDAI/HLT/CIR/MISC/116/05/2024, Chapter IX, Section 52\nDate: 29-May-2024\nSource: Insurance Regulatory and Development Authority of India (IRDAI) LIST I — ITEMS THAT ARE NOT PART OF TREATMENT (ALWAYS NON-PAYABLE)\n1. Toiletries: Toilet paper, tissues, sanitary pads, diapers\n2. Personal comfort items: Telephone charges, TV charges, guest bed charges\n3. Administrative charges: Registration charges, admission charges, filing charges\n4. Documentation charges: Medico-legal case documentation, birth/death certificate\n5. Service charges: Attendant charges, extra diet charges beyond therapeutic diet\n6. Laundry charges\n7. Mineral water and beverages LIST II — ITEMS RELATED TO ROOM AND BOARDING (SUBJECT TO ROOM RENT LIMIT)\n1. Extra bed charges beyond entitled category\n2. Charges for upgrades in room category\n3. Mini-bar charges, special menu charges LIST III — ITEMS RELATED TO CONSUMABLES / DISPOSABLES\nItems not directly related to treatment and are for provider's convenience:\n1. Surgical gloves, surgical masks, caps, shoe covers, gowns\n2. PPE kits (Personal Protective Equipment)\n3. Hand sanitizers, disinfectants for room cleaning\n4. Linen savers and under-pads\n5. Nebulizer masks and tubing (single-use disposable types) Note: Items in List III that are integral to surgical procedures (e.g., sterile\ndrapes used during operation) may be admissible at the insurer's discretion. LIST IV — ITEMS THAT REQUIRE SPECIFIC CONSIDERATION\n1. External durable medical equipment: Wheelchair, walker, crutches\n   (may be covered under specific plans if prescribed for post-surgical recovery)\n2. Spectacles, contact lenses, hearing aids — generally non-payable\n3. Dentures — covered only if required due to accidental injury NPPA PRICE CAPS ON MEDICAL DEVICES:\nAs per National Pharmaceutical Pricing Authority (NPPA) orders:\n- Drug-eluting coronary stent (DES): Ceiling price Rs. 30,000\n- Bare metal stent (BMS): Ceiling price Rs. 7,000\n- Knee implant: Ceiling price Rs. 54,720 (total knee replacement)\n- Hip implant: Ceiling price Rs. 45,350 Any charge by hospital exceeding the NPPA ceiling price for capped devices\nis non-payable and shall be deducted from the admissible claim amount.",
+    "metadata": {
+      "source_file": "irdai_circulars/irdai_non_payables_schedule.txt",
+      "section": "",
+      "chunk_id": "irdai_circulars/irdai_non_payables_schedule.txt::chunk_0000",
+      "document_type": "irdai_circular",
+      "circular_date": "",
+      "circular_number": "",
+      "policy_type": ""
+    }
+  }
+]

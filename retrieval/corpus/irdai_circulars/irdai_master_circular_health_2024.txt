@@ -1,0 +1,57 @@
+IRDAI MASTER CIRCULAR ON HEALTH INSURANCE BUSINESS
+Circular No.: IRDAI/HLT/CIR/MISC/116/05/2024
+Date: 29-May-2024
+Source: Insurance Regulatory and Development Authority of India (IRDAI)
+URL: https://www.irdai.gov.in/admincms/cms/frmGeneral_Layout.aspx?page=PageNo5659
+
+CHAPTER VI — CASHLESS FACILITY AND CLAIMS SETTLEMENT
+
+Section 36 — Cashless Authorization Timelines:
+36.1 Pre-Authorization Decision: The insurer or its TPA shall communicate the
+pre-authorization decision within ONE HOUR of receipt of the pre-authorization
+request along with all necessary documents from the network provider.
+
+36.2 Enhancement / Final Authorization: Upon discharge of the insured from the
+hospital, the insurer or TPA shall communicate the final authorization within
+THREE HOURS of receipt of the final bill and discharge summary.
+
+36.3 If the insurer fails to communicate within the stipulated time, the claim
+shall be deemed to be approved for the amount requested, subject to policy
+terms and conditions.
+
+Section 37 — Query Communication:
+37.1 If additional information is required, the insurer shall raise a query
+in a single communication and not in multiple rounds. Multiple rounds of
+queries for the same claim constitute poor claims servicing.
+
+37.2 The insured shall be given a reasonable time of not less than 15 days
+to respond to any query.
+
+Section 38 — Claim Settlement:
+38.1 Claims shall be settled within 30 days of receipt of the last necessary
+document from the insured or the hospital.
+
+38.2 In case of delay beyond 30 days, interest at the rate of 2% above the
+bank rate shall be payable from the date of receipt of last document to the
+date of payment.
+
+CHAPTER VII — STANDARDIZATION AND REFORM
+
+Section 42 — National Health Claims Exchange (NHCX):
+42.1 All insurers shall mandatorily onboard the National Health Claims Exchange
+platform operated by the National Health Authority (NHA).
+
+42.2 Claims data exchange shall follow the FHIR (Fast Healthcare Interoperability
+Resources) standard as specified by NHA.
+
+Section 43 — Pre-Existing Disease Definition:
+43.1 Pre-Existing Disease (PED) means any condition, ailment, injury or disease:
+    a) That is/are diagnosed by a physician within 48 months prior to the
+       effective date of the policy issued by the insurer, OR
+    b) For which medical advice or treatment was recommended by, or received
+       from, a physician within 48 months prior to the effective date of the
+       policy issued by the insurer.
+
+43.2 The standard moratorium period of 8 continuous years applies, after which
+no claim shall be contestable for pre-existing disease, except in cases of
+proven fraud or moral hazard.

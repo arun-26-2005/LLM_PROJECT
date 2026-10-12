@@ -1,0 +1,46 @@
+IRDAI GUIDELINES ON NON-PAYABLE ITEMS IN HEALTH INSURANCE
+Reference: IRDAI/HLT/REG/CIR/XXX/10/2019 (as updated by Master Circular 2024)
+Circular No.: IRDAI/HLT/CIR/MISC/116/05/2024, Chapter IX, Section 52
+Date: 29-May-2024
+Source: Insurance Regulatory and Development Authority of India (IRDAI)
+
+LIST I — ITEMS THAT ARE NOT PART OF TREATMENT (ALWAYS NON-PAYABLE)
+1. Toiletries: Toilet paper, tissues, sanitary pads, diapers
+2. Personal comfort items: Telephone charges, TV charges, guest bed charges
+3. Administrative charges: Registration charges, admission charges, filing charges
+4. Documentation charges: Medico-legal case documentation, birth/death certificate
+5. Service charges: Attendant charges, extra diet charges beyond therapeutic diet
+6. Laundry charges
+7. Mineral water and beverages
+
+LIST II — ITEMS RELATED TO ROOM AND BOARDING (SUBJECT TO ROOM RENT LIMIT)
+1. Extra bed charges beyond entitled category
+2. Charges for upgrades in room category
+3. Mini-bar charges, special menu charges
+
+LIST III — ITEMS RELATED TO CONSUMABLES / DISPOSABLES
+Items not directly related to treatment and are for provider's convenience:
+1. Surgical gloves, surgical masks, caps, shoe covers, gowns
+2. PPE kits (Personal Protective Equipment)
+3. Hand sanitizers, disinfectants for room cleaning
+4. Linen savers and under-pads
+5. Nebulizer masks and tubing (single-use disposable types)
+
+Note: Items in List III that are integral to surgical procedures (e.g., sterile
+drapes used during operation) may be admissible at the insurer's discretion.
+
+LIST IV — ITEMS THAT REQUIRE SPECIFIC CONSIDERATION
+1. External durable medical equipment: Wheelchair, walker, crutches
+   (may be covered under specific plans if prescribed for post-surgical recovery)
+2. Spectacles, contact lenses, hearing aids — generally non-payable
+3. Dentures — covered only if required due to accidental injury
+
+NPPA PRICE CAPS ON MEDICAL DEVICES:
+As per National Pharmaceutical Pricing Authority (NPPA) orders:
+- Drug-eluting coronary stent (DES): Ceiling price Rs. 30,000
+- Bare metal stent (BMS): Ceiling price Rs. 7,000
+- Knee implant: Ceiling price Rs. 54,720 (total knee replacement)
+- Hip implant: Ceiling price Rs. 45,350
+
+Any charge by hospital exceeding the NPPA ceiling price for capped devices
+is non-payable and shall be deducted from the admissible claim amount.

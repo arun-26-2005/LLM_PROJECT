@@ -1,0 +1,113 @@
+POLICY WORDING: STANDARD INDIVIDUAL HEALTH INSURANCE
+Policy Type: Individual
+Insurer: Synthetic Insurance Co. Ltd.
+Product: HealthGuard Individual Plan
+UIN: SYNTH-IND-HLT-001/V1/2024
+
+SECTION 1 — SCOPE OF COVER
+1.1 This policy covers the Insured Person against financial loss arising from
+hospitalization necessitated by illness or accidental bodily injury during
+the policy period, subject to the terms, conditions, and exclusions herein.
+
+1.2 Coverage is available for hospitalization requiring a minimum continuous
+period of 24 hours as an inpatient in a hospital, except for Day Care
+Procedures listed in Annexure A.
+
+SECTION 2 — SUM INSURED AND LIMITS
+2.1 The maximum liability of the Company shall not exceed the Sum Insured
+stated in the Policy Schedule for any one policy year.
+
+2.2 Room Rent Sub-Limit: The daily room rent charges payable shall not exceed
+1% of the Sum Insured or the amount specified in the Policy Schedule,
+whichever is lower.
+
+2.3 ICU Charges: ICU charges shall not exceed 2% of the Sum Insured per day.
+
+2.4 Proportionate Deduction: If the actual room rent exceeds the eligible
+room rent limit, all other admissible charges (surgeon fees, anaesthesia
+charges, consultation fees, diagnostics, pharmacy) shall be reduced in the
+same proportion as the eligible room rent bears to the actual room rent
+charged by the hospital.
+
+2.5 Ambulance Charges: Emergency ambulance charges are covered up to a maximum
+of Rs. 2,000 per hospitalization.
+
+SECTION 3 — WAITING PERIODS
+3.1 Initial Waiting Period: No claim shall be admissible during the first 30
+days of the first policy period, except claims arising from an accident.
+
+3.2 Specific Disease Waiting Period: Claims arising from the following diseases
+and treatments shall be admissible only after completion of 24 continuous months
+(2 years) from the date of commencement of the first policy period:
+    a) Cataract (ICD-10: H25, H26)
+    b) Hernia of all types (ICD-10: K40-K46)
+    c) Benign Prostatic Hypertrophy (ICD-10: N40)
+    d) Cholelithiasis / Gallstones (ICD-10: K80)
+    e) Kidney Stones / Urolithiasis (ICD-10: N20, N21)
+    f) Joint Replacement Surgery (ICD-10: M17)
+    g) Sinusitis and related conditions (ICD-10: J34)
+    h) Internal Congenital Anomalies
+    i) Haemorrhoids / Piles (ICD-10: I84)
+
+3.3 Pre-Existing Disease (PED) Waiting Period: Any condition, ailment, injury
+or disease that is diagnosed or for which medical advice or treatment was
+recommended or received by the Insured Person prior to inception of the first
+policy shall be covered only after completion of 48 continuous months (4 years)
+from the date of commencement of the first policy period.
+
+3.4 Moratorium Period: After completion of 8 continuous years under the policy,
+no claim shall be contestable on the ground that a disease or condition was
+pre-existing at the time of taking the policy, except for proven fraud.
+
+SECTION 4 — CO-PAYMENT
+4.1 The Insured Person shall bear a co-payment as a percentage of every
+admissible claim, as specified in the Policy Schedule.
+
+4.2 Co-payment shall be calculated on the admissible claim amount after
+deduction of any non-payable items and sub-limit capping.
+
+4.3 For Senior Citizen plans (entry age 60+), a mandatory co-payment of
+not less than 10% shall apply unless waived by the Company.
+
+SECTION 5 — EXCLUSIONS
+5.1 Permanent Exclusions: The following are permanently excluded and shall
+not be covered under this policy under any circumstances:
+    a) Cosmetic or aesthetic treatment or surgery
+    b) Self-inflicted injuries or attempted suicide
+    c) Treatment for alcoholism or drug/substance abuse
+    d) War, invasion, act of foreign enemy, terrorism
+    e) Nuclear contamination or radioactive exposure
+    f) Hazardous or adventure sports injuries
+    g) Treatments for change of sex / gender reassignment
+    h) Vaccination and inoculation (unless post-bite)
+    i) Weight management / obesity treatment (unless morbid obesity with BMI > 40)
+
+SECTION 6 — CASHLESS FACILITY
+6.1 Cashless facility is available at Network Hospitals empanelled with the
+Company's Third Party Administrator (TPA).
+
+6.2 Pre-Authorisation Request: For planned hospitalization, a pre-authorisation
+request must be submitted to the TPA at least 48-72 hours prior to admission.
+For emergency hospitalization, the request must be submitted within 24 hours
+of admission.
+
+6.3 Decision Timeline: As per IRDAI Master Circular on Health Insurance
+(IRDAI/HLT/CIR/MISC/116/05/2024, dated 29-May-2024), the initial
+pre-authorisation decision shall be communicated within 1 hour of receipt
+of the request with all necessary documents. Final authorization upon
+discharge shall be communicated within 3 hours.
+
+6.4 Non-Network Hospitals: Treatment at non-network hospitals is covered
+on a reimbursement basis only, unless emergency pre-authorisation exception
+is granted by the Company.
+
+SECTION 7 — POLICY STATUS
+7.1 Active Policy: Claims are admissible only when the policy is in active
+status with all due premiums paid.
+
+7.2 Lapsed Policy: If the premium due is not paid within the grace period of
+30 days, the policy shall lapse. No claims arising during the lapsed period
+shall be admissible.
+
+7.3 Expired Policy: Upon expiry of the policy period, no new claims shall be
+admissible unless the policy is renewed within the grace period.

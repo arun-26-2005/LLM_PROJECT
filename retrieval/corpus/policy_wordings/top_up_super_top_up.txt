@@ -1,0 +1,17 @@
+POLICY WORDING: TOP-UP AND SUPER TOP-UP PLANS
+Policy Type: Top-Up / Super Top-Up
+Insurer: Synthetic Insurance Co. Ltd.
+
+TOP-UP PLAN (SYNTH-TU-HLT-005/V1/2024):
+1.1 A Top-Up plan activates when any single claim in a policy year exceeds
+the specified Deductible amount.
+1.2 Deductible options: Rs. 3,00,000 / Rs. 5,00,000 / Rs. 10,00,000
+1.3 Sum Insured (above deductible): Rs. 10,00,000 / Rs. 25,00,000 / Rs. 50,00,000
+1.4 Only the amount exceeding the deductible in a single claim is payable.
+
+SUPER TOP-UP PLAN (SYNTH-STU-HLT-006/V1/2024):
+2.1 A Super Top-Up plan activates when the aggregate of all claims in a
+policy year exceeds the specified Deductible amount.
+2.2 Unlike Top-Up, multiple smaller claims can aggregate to breach the deductible.
+2.3 Deductible options: Rs. 3,00,000 / Rs. 5,00,000
+2.4 Sum Insured: Rs. 15,00,000 / Rs. 25,00,000 / Rs. 50,00,000
