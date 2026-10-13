@@ -70,6 +70,24 @@ def check_waiting_period(
     deductions: list[Deduction] = []
     reasoning_parts: list[str] = []
 
+    # --- Check 0: Endorsement Reversal (Adversarial / Priority Endorsement) ---
+    # Per Metrics.md, an endorsement can explicitly reverse or waive the base policy wording.
+    endorsement_clause = _find_endorsement_waiver(clauses)
+    if endorsement_clause:
+        endorsement_text = getattr(endorsement_clause, "chunk_text", "")
+        endorsement_doc = getattr(endorsement_clause, "source_file", "")
+        reasoning_parts.append(
+            "ENDORSEMENT REVERSAL APPLIED: An active policy endorsement was retrieved that expressly "
+            "waives specific disease and waiting periods, superseding and reversing the base policy exclusion."
+        )
+        return {
+            "deductions": [],
+            "reasoning": "\n".join(reasoning_parts),
+            "is_clear": True,
+            "endorsement_applied": True,
+            "endorsement_citation": endorsement_text[:300],
+        }
+
     # --- Check 1: Initial 30-day waiting period ---
     if not waiting_period.initial_wp_clear:
         reasoning_parts.append(
@@ -211,3 +229,17 @@ def _find_wp_source(clauses: list["RetrievedClause"], *keywords: str) -> str:
     if clauses:
         return clauses[0].source_file
     return "policy_wording_general.txt"
+
+
+def _find_endorsement_waiver(clauses: list["RetrievedClause"]) -> Optional["RetrievedClause"]:
+    """Check if retrieved clauses include an endorsement waiving waiting periods."""
+    for clause in clauses:
+        text = getattr(clause, "chunk_text", "") or ""
+        doc = getattr(clause, "source_document", "") or getattr(clause, "source_file", "") or ""
+        text_lower = text.lower()
+        doc_lower = doc.lower()
+        if ("endorsement" in text_lower or "endorsement" in doc_lower) and (
+            "waiv" in text_lower or "waiver" in text_lower or "delete" in text_lower
+        ) and ("waiting period" in text_lower or "specific disease" in text_lower or "ped" in text_lower):
+            return clause
+    return None

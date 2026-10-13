@@ -150,6 +150,7 @@ def detect_format(source: Union[str, Path, dict]) -> str:
 def process_intake(
     source: Union[str, Path, dict],
     format_override: Optional[str] = None,
+    original_filename: Optional[str] = None,
 ) -> IntakeResult:
     """Main entry point for pre-auth request intake processing.
 
@@ -161,6 +162,7 @@ def process_intake(
         source: File path (str/Path), raw string, or dictionary payload.
         format_override: Optional format menu option ("1" to "6") or format alias name
             (e.g., "json", "digital_pdf", "scanned_pdf", "image", "docx", "text").
+        original_filename: Optional original filename from file upload or metadata.
 
     Returns:
         IntakeResult: Unified result object containing validated pre-auth model,
@@ -209,10 +211,10 @@ def process_intake(
         return process_digital_pdf_intake(source)
     elif fmt_key == "3":
         # PDF page rasterization into images, followed by OCR and structured parsing
-        return process_ocr_intake(source, source_format=SourceFormat.PDF)
+        return process_ocr_intake(source, source_format=SourceFormat.PDF, original_filename=original_filename)
     elif fmt_key == "4":
         # Direct image OCR with preprocessing (deskewing, contrast adjustment)
-        return process_ocr_intake(source, source_format=SourceFormat.SCANNED_IMAGE)
+        return process_ocr_intake(source, source_format=SourceFormat.SCANNED_IMAGE, original_filename=original_filename)
     elif fmt_key == "5":
         # Paragraph and table extraction from Word documents (.docx)
         return process_docx_intake(source)

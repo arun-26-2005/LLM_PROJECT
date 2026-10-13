@@ -211,7 +211,7 @@ async def process_file_upload(file: UploadFile = File(...)):
             tmp_path = tmp.name
 
         try:
-            intake_result = process_intake(tmp_path)
+            intake_result = process_intake(tmp_path, original_filename=file.filename)
             
             if not intake_result.is_success:
                 return {

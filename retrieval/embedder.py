@@ -88,10 +88,13 @@ class Embedder:
             return
 
         try:
+            import os
+            os.environ.setdefault("HF_HUB_OFFLINE", "1")
+            os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
             from sentence_transformers import SentenceTransformer
 
-            self._model = SentenceTransformer(self.model_name)
-            logger.info("Loaded embedding model: %s", self.model_name)
+            self._model = SentenceTransformer(self.model_name, device="cpu")
+            logger.info("Loaded embedding model: %s on cpu", self.model_name)
         except ImportError:
             raise ImportError(
                 "sentence-transformers is required for embedding generation. "

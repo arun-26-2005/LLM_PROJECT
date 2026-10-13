@@ -1,0 +1,2254 @@
+{
+  "summary": {
+    "evaluated_cases": 210,
+    "total_cases": 210,
+    "overall_accuracy": 0.8333333333333334
+  },
+  "dimensions": {
+    "1_extraction": {
+      "accuracy": 0.9874
+    },
+    "2_retrieval": {
+      "recall_proxy": 1.1313
+    },
+    "3_grounding": {
+      "hallucination_rate": 0.0
+    },
+    "4_decision": {
+      "accuracy": 0.8333,
+      "confusion_matrix": {
+        "TP": 107,
+        "TN": 68,
+        "FP": 4,
+        "FN": 31
+      },
+      "fp_rate": 0.0556,
+      "fn_rate": 0.2246
+    },
+    "5_escalation": {
+      "precision": 0.6,
+      "recall": 0.9429,
+      "confusion_matrix": {
+        "esc_TP": 33,
+        "esc_TN": 153,
+        "esc_FP": 22,
+        "esc_FN": 2
+      }
+    },
+    "6_latency": {
+      "mean_seconds": 0.082,
+      "p50_seconds": 0.036,
+      "p95_seconds": 0.066,
+      "p99_seconds": 0.14,
+      "sla_compliant": true
+    },
+    "7_cost": {
+      "total_inr": 0.0,
+      "avg_per_case_inr": 0.0
+    },
+    "8_robustness": {
+      "by_subtype": {
+        "happy_path": {
+          "correct": 93,
+          "total": 100,
+          "accuracy": 0.93
+        },
+        "near_sum_insured": {
+          "correct": 5,
+          "total": 17,
+          "accuracy": 0.29411764705882354
+        },
+        "non_network": {
+          "correct": 16,
+          "total": 16,
+          "accuracy": 1.0
+        },
+        "high_copay": {
+          "correct": 8,
+          "total": 16,
+          "accuracy": 0.5
+        },
+        "ped_flagged": {
+          "correct": 11,
+          "total": 11,
+          "accuracy": 1.0
+        },
+        "prompt_injection": {
+          "correct": 2,
+          "total": 4,
+          "accuracy": 0.5
+        },
+        "cost_mismatch": {
+          "correct": 2,
+          "total": 2,
+          "accuracy": 1.0
+        },
+        "transposed_digit": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "threshold_boundary_low": {
+          "correct": 1,
+          "total": 5,
+          "accuracy": 0.2
+        },
+        "policy_mismatch": {
+          "correct": 9,
+          "total": 9,
+          "accuracy": 1.0
+        },
+        "backdated_admission": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        },
+        "expired_policy": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "lapsed_policy": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        },
+        "threshold_boundary_high": {
+          "correct": 4,
+          "total": 4,
+          "accuracy": 1.0
+        },
+        "within_ped_waiting_period": {
+          "correct": 3,
+          "total": 3,
+          "accuracy": 1.0
+        },
+        "within_waiting_period": {
+          "correct": 5,
+          "total": 5,
+          "accuracy": 1.0
+        }
+      },
+      "by_category": {
+        "happy_path": {
+          "correct": 93,
+          "total": 100,
+          "accuracy": 0.93
+        },
+        "edge_case": {
+          "correct": 40,
+          "total": 60,
+          "accuracy": 0.6666666666666666
+        },
+        "adversarial": {
+          "correct": 44,
+          "total": 50,
+          "accuracy": 0.88
+        }
+      }
+    },
+    "9_fairness": "Detailed demographic parity and equal opportunity metrics available in data/fairness_results.json."
+  },
+  "case_results": [
+    {
+      "case_id": 1,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 9.688
+    },
+    {
+      "case_id": 2,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.042
+    },
+    {
+      "case_id": 3,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.096
+    },
+    {
+      "case_id": 4,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.067
+    },
+    {
+      "case_id": 5,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.069
+    },
+    {
+      "case_id": 6,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 7,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 8,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 9,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 10,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 11,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.066
+    },
+    {
+      "case_id": 12,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 13,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 14,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 15,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.051
+    },
+    {
+      "case_id": 16,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 17,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.072
+    },
+    {
+      "case_id": 18,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.066
+    },
+    {
+      "case_id": 19,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.065
+    },
+    {
+      "case_id": 20,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 21,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.065
+    },
+    {
+      "case_id": 22,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 23,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 24,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.066
+    },
+    {
+      "case_id": 25,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 26,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 27,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 28,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 29,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 30,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 31,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 32,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 33,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 34,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 35,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 36,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 37,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 38,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 39,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 40,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 41,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 42,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 43,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 44,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 45,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 46,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 47,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.065
+    },
+    {
+      "case_id": 48,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.064
+    },
+    {
+      "case_id": 49,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 50,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.04
+    },
+    {
+      "case_id": 51,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 52,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 53,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 54,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 55,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 56,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 57,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 58,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 59,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 60,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 61,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 62,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 63,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 64,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 65,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 66,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 67,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 68,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 69,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 70,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 71,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 72,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.04
+    },
+    {
+      "case_id": 73,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 74,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.04
+    },
+    {
+      "case_id": 75,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 76,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 77,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 78,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 79,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 80,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 81,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 82,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 83,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 84,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.043
+    },
+    {
+      "case_id": 85,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 86,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 87,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 88,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 89,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 90,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 91,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 92,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 93,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 94,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 95,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 96,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 97,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 98,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 99,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 100,
+      "category": "happy_path",
+      "subtype": "happy_path",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 101,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 102,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 103,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.043
+    },
+    {
+      "case_id": 104,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 105,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 106,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 107,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 108,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 109,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 110,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 111,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 112,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 113,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 114,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 115,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 116,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 117,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 118,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 119,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 120,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.043
+    },
+    {
+      "case_id": 121,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 122,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 123,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 124,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 125,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 126,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 127,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 128,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 129,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.04
+    },
+    {
+      "case_id": 130,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 131,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 132,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 133,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 134,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 135,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 136,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 137,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 138,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 139,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.032
+    },
+    {
+      "case_id": 140,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 141,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 142,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 143,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 144,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 145,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 146,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 147,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 148,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 149,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.041
+    },
+    {
+      "case_id": 150,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 151,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 152,
+      "category": "edge_case",
+      "subtype": "ped_flagged",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 153,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.034
+    },
+    {
+      "case_id": 154,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 155,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 156,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 157,
+      "category": "edge_case",
+      "subtype": "near_sum_insured",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 158,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 159,
+      "category": "edge_case",
+      "subtype": "non_network",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 160,
+      "category": "edge_case",
+      "subtype": "high_copay",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.047
+    },
+    {
+      "case_id": 161,
+      "category": "adversarial",
+      "subtype": "prompt_injection",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 162,
+      "category": "adversarial",
+      "subtype": "cost_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 163,
+      "category": "adversarial",
+      "subtype": "transposed_digit",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 164,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_low",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 165,
+      "category": "adversarial",
+      "subtype": "transposed_digit",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 166,
+      "category": "adversarial",
+      "subtype": "prompt_injection",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.08
+    },
+    {
+      "case_id": 167,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 168,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 169,
+      "category": "adversarial",
+      "subtype": "backdated_admission",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 170,
+      "category": "adversarial",
+      "subtype": "expired_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 171,
+      "category": "adversarial",
+      "subtype": "prompt_injection",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.064
+    },
+    {
+      "case_id": 172,
+      "category": "adversarial",
+      "subtype": "expired_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 173,
+      "category": "adversarial",
+      "subtype": "lapsed_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 174,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_low",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 175,
+      "category": "adversarial",
+      "subtype": "backdated_admission",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 176,
+      "category": "adversarial",
+      "subtype": "backdated_admission",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 177,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_high",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 178,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 179,
+      "category": "adversarial",
+      "subtype": "lapsed_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 180,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_low",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "APPROVE",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 181,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_low",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": false,
+      "latency_s": 0.144
+    },
+    {
+      "case_id": 182,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 183,
+      "category": "adversarial",
+      "subtype": "transposed_digit",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 184,
+      "category": "adversarial",
+      "subtype": "lapsed_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 185,
+      "category": "adversarial",
+      "subtype": "lapsed_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 186,
+      "category": "adversarial",
+      "subtype": "prompt_injection",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.216
+    },
+    {
+      "case_id": 187,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 188,
+      "category": "adversarial",
+      "subtype": "within_ped_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 189,
+      "category": "adversarial",
+      "subtype": "expired_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 190,
+      "category": "adversarial",
+      "subtype": "within_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 191,
+      "category": "adversarial",
+      "subtype": "backdated_admission",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 192,
+      "category": "adversarial",
+      "subtype": "within_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 193,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 194,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 195,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_low",
+      "expected_decision": "APPROVE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": false,
+      "latency_s": 0.037
+    },
+    {
+      "case_id": 196,
+      "category": "adversarial",
+      "subtype": "within_ped_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.036
+    },
+    {
+      "case_id": 197,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 198,
+      "category": "adversarial",
+      "subtype": "policy_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 199,
+      "category": "adversarial",
+      "subtype": "transposed_digit",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 200,
+      "category": "adversarial",
+      "subtype": "within_ped_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 201,
+      "category": "adversarial",
+      "subtype": "within_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.038
+    },
+    {
+      "case_id": 202,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_high",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.032
+    },
+    {
+      "case_id": 203,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_high",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.035
+    },
+    {
+      "case_id": 204,
+      "category": "adversarial",
+      "subtype": "lapsed_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 205,
+      "category": "adversarial",
+      "subtype": "backdated_admission",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 206,
+      "category": "adversarial",
+      "subtype": "cost_mismatch",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 207,
+      "category": "adversarial",
+      "subtype": "threshold_boundary_high",
+      "expected_decision": "ESCALATE",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.033
+    },
+    {
+      "case_id": 208,
+      "category": "adversarial",
+      "subtype": "within_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.039
+    },
+    {
+      "case_id": 209,
+      "category": "adversarial",
+      "subtype": "expired_policy",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": false,
+      "is_correct": true,
+      "latency_s": 0.005
+    },
+    {
+      "case_id": 210,
+      "category": "adversarial",
+      "subtype": "within_waiting_period",
+      "expected_decision": "DENY",
+      "actual_recommendation": "DENY",
+      "needs_escalation": true,
+      "is_correct": true,
+      "latency_s": 0.033
+    }
+  ]
+}

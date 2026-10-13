@@ -83,6 +83,30 @@ def process_text_intake(source: Union[str, Path]) -> IntakeResult:
         )
 
     # =========================================================================
+    # 2.1 Unexpected Language Detection (Hindi / Devanagari)
+    # =========================================================================
+    import re
+    devanagari_count = len(re.findall(r"[\u0900-\u097F]", text_content))
+    if devanagari_count > 20:
+        return IntakeResult(
+            request=None,
+            is_success=False,
+            source_format=SourceFormat.FORM,
+            summary="Document submitted in unexpected language (Hindi / Devanagari). Certified English translation required.",
+            confidence_score=0.1,
+            missing_fields=["language_unsupported"],
+            validation_errors=[
+                f"Unsupported document language: Devanagari script detected ({devanagari_count} characters). "
+                "Adjudication requires certified English documentation."
+            ],
+            pending_query_notice=(
+                "DEFICIENCY QUERY NOTICE: In accordance with standard TPA and IRDAI cashless guidelines, "
+                "clinical notes and pre-authorisation requests must be provided in English. Please submit "
+                "a certified English clinical translation or bilingual discharge summary."
+            ),
+        )
+
+    # =========================================================================
     # 3. Structured Information Extraction
     # =========================================================================
     # Plain text inputs represent digital character data with exact fidelity;

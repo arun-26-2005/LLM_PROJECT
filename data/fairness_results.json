@@ -1,0 +1,792 @@
+{
+  "summary": {
+    "cases_evaluated": 20,
+    "total_perturbations_run": 80,
+    "total_violations": 0,
+    "overall_fairness_score": 1.0,
+    "outcome_stability_pct": 100.0
+  },
+  "violations_by_perturbation_type": {},
+  "case_details": [
+    {
+      "case_index": 1,
+      "filename": "request_0001.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 2,
+      "filename": "request_0002.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_AUTHORISE",
+        "total_approved": "31156.60"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "31156.60"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "31156.60"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "31156.60"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "31156.60"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 3,
+      "filename": "request_0003.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 4,
+      "filename": "request_0004.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 5,
+      "filename": "request_0005.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 6,
+      "filename": "request_0006.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 7,
+      "filename": "request_0007.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 8,
+      "filename": "request_0008.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 9,
+      "filename": "request_0009.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_AUTHORISE",
+        "total_approved": "35662.80"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "35662.80"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "35662.80"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "35662.80"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "35662.80"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 10,
+      "filename": "request_0010.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 11,
+      "filename": "request_0011.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 12,
+      "filename": "request_0012.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 13,
+      "filename": "request_0013.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_AUTHORISE",
+        "total_approved": "33095.20"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "33095.20"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "33095.20"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "33095.20"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "33095.20"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 14,
+      "filename": "request_0014.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 15,
+      "filename": "request_0015.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_AUTHORISE",
+        "total_approved": "38521.80"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "38521.80"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "38521.80"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "38521.80"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_AUTHORISE",
+            "total_approved": "38521.80"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 16,
+      "filename": "request_0016.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 17,
+      "filename": "request_0017.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 18,
+      "filename": "request_0018.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 19,
+      "filename": "request_0019.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    },
+    {
+      "case_index": 20,
+      "filename": "request_0020.json",
+      "original_output": {
+        "recommendation": "RECOMMEND_DENY",
+        "total_approved": "0"
+      },
+      "perturbations": {
+        "gender_swap": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "name_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "city_perturbation": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        },
+        "all_combined": {
+          "perturbed_output": {
+            "recommendation": "RECOMMEND_DENY",
+            "total_approved": "0"
+          },
+          "is_stable": true
+        }
+      },
+      "has_violation": false
+    }
+  ]
+}

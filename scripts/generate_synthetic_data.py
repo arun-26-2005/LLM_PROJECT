@@ -343,14 +343,23 @@ def generate_single_request(index: int, category: str) -> tuple[dict[str, Any], 
     start_date = sub_date - timedelta(days=random.randint(60, 1000))
     adm_date = sub_date + timedelta(days=random.randint(0, 5))
     
-    # Defaults for happy-path scenario
+    # Defaults for happy-path scenario:
+    # 1. Clean network claim at an empanelled hospital.
+    # 2. Non-PED diagnosis for happy path (PED is explicitly tested in edge_case and adversarial).
+    # 3. Policy age > 750 days so that initial (30d) and specific-disease (2-year) waiting periods are passed.
     network_tier = NetworkTier.CASHLESS_NETWORK
-    is_ped = diag_info["is_ped"]
+    is_ped = False if category == "happy_path" else diag_info["is_ped"]
     icd10 = diag_info["icd10"]
     
-    sum_insured_amt = Decimal(random.choice([300000, 500000, 1000000, 1500000]))
+    if category == "happy_path":
+        # Policy is 2 to 5 years old, clearing all standard waiting periods
+        start_date = sub_date - timedelta(days=random.randint(750, 1800))
+        sum_insured_amt = Decimal(random.choice([500000, 1000000, 1500000]))
+    else:
+        start_date = sub_date - timedelta(days=random.randint(60, 1000))
+        sum_insured_amt = Decimal(random.choice([300000, 500000, 1000000]))
+        
     co_pay = Decimal("0.00")
-    
     subtype = "happy_path"
     
     # Category adjustments

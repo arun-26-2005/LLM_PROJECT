@@ -164,8 +164,11 @@ def parse_cost_line_items(text: str) -> list[CostLineItem]:
         if m:
             item_name = m.group(1).strip()
             item_lower = item_name.lower()
-            # Strip comma thousands-separators to allow direct Decimal conversion
-            raw_amt = m.group(2).replace(",", "")
+            # Clean comma thousands-separators and handle OCR comma-as-decimal (e.g. 18086,80)
+            raw_clean = m.group(2).strip().replace(" ", "")
+            if re.search(r",\d{1,2}$", raw_clean) and "." not in raw_clean:
+                raw_clean = re.sub(r",(\d{1,2})$", r".\1", raw_clean)
+            raw_amt = raw_clean.replace(",", "")
             
             # Skip non-cost identifiers, headers, and metadata fields:
             # Aggregates like 'Grand Total', 'Sum Insured', or policy headers represent
@@ -402,13 +405,29 @@ def extract_structured_pre_auth(
     # 4. Diagnosis & Procedure Extraction
     # ------------------------------------------------------------------------
     # ICD-10 Code: Standard international disease code (e.g., "K35.80", "I25.10")
-    icd10_code, icd_inf = extract_key_value(r"(?:ICD-?10\s*Code|ICD-?10|ICD)\s*[:\-]\s*([A-Z0-9\.]+)", raw_text)
+    icd10_code, icd_inf = extract_key_value(r"(?:ICD-?10\s*(?:Code|cede)?|160-?10|1CD-?10|ICD)\s*[:\.\-]?\s*([A-Z0-9\.]+)", raw_text)
+    if not icd10_code:
+        # Fallback: scan for standard ICD-10 pattern (e.g. J18.9, M17.11, K35.80, I25.10)
+        m_icd = re.search(r"\b([A-TV-Z]\d{2}(?:\.\d{1,2})?)\b", raw_text)
+        if m_icd:
+            icd10_code = m_icd.group(1)
+
     # Diagnosis Description: Clinical condition narrative
-    diag_desc, diag_inf = extract_key_value(r"(?:Diagnosis|Condition)\s*[:\-]\s*([A-Za-z0-9\s,\(\)\-]+?)(?:\r?\n|$)", raw_text)
+    diag_desc, diag_inf = extract_key_value(r"(?:Diagnosis|Diagnesis|Primary\s*Diagnosis)\s*[:\.\-]?\s*([A-Za-z0-9\s,\(\)\-]+?)(?:\r?\n|$)", raw_text)
+    # Reject boolean or non-clinical matches (e.g. from 'Pre-Existing Condition: No')
+    if diag_desc and diag_desc.lower() in ["no", "yes", "none", "na", "n/a", "nil"]:
+        diag_desc = None
+        diag_inf = True
+
     if diag_inf or not diag_desc:
-        diag_desc = "General Clinical Condition"
-        missing_fields.append("diagnosis.description")
-        inferred_fields.append("diagnosis.description")
+        m_diag = re.search(r"(?<!pre-existing\s)(?<!preexisting\s)(?:Diagnosis|Diagnesis|Condition)\s*[:\.\-]?\s*([A-Za-z0-9\s,\(\)\-]+?)(?:\r?\n|$)", raw_text, re.IGNORECASE)
+        if m_diag and m_diag.group(1).strip().lower() not in ["no", "yes", "none", "na", "nil"]:
+            diag_desc = m_diag.group(1).strip()
+            diag_inf = False
+        else:
+            diag_desc = "General Clinical Condition"
+            missing_fields.append("diagnosis.description")
+            inferred_fields.append("diagnosis.description")
 
     # Pre-Existing Disease (PED) Detection:
     # Uses case-insensitive regex to scan for explicit declarations of prior chronic illness
@@ -444,7 +463,7 @@ def extract_structured_pre_auth(
     # ------------------------------------------------------------------------
     # Extract explicitly stated grand total cost from document
     total_cost_str, total_cost_inf = extract_key_value(
-        r"(?:Total\s*Estimated\s*Cost|Total\s*Amount|Grand\s*Total|Total)\s*[:\-]\s*(?:INR|Rs\.?|₹|\$)?\s*([\d,]+\.?\d*)", raw_text
+        r"(?:Total\s*Estimated\s*Cost|Total\s*Amount|Toal\s*Amount|Grand\s*Total|Total)\s*[:\.\-]?\s*(?:INR|Rs\.?|₹|\$)?\s*([\d,]+\.?\d*)", raw_text
     )
     # Parse individual line items from billing tables or itemized free text
     line_items = parse_cost_line_items(raw_text)
@@ -452,7 +471,10 @@ def extract_structured_pre_auth(
     # Establish declared total amount
     if total_cost_str:
         try:
-            declared_total = Decimal(total_cost_str.replace(",", "")).quantize(Decimal("0.01"))
+            total_clean = total_cost_str.strip().replace(" ", "")
+            if re.search(r",\d{1,2}$", total_clean) and "." not in total_clean:
+                total_clean = re.sub(r",(\d{1,2})$", r".\1", total_clean)
+            declared_total = Decimal(total_clean.replace(",", "")).quantize(Decimal("0.01"))
         except Exception:
             declared_total = Decimal("0.00")
     else:

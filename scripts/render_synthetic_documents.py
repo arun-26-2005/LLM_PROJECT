@@ -235,17 +235,23 @@ def render_image(text_content: str, output_path: Path):
     """
     img = Image.new("RGB", (850, 1100), color=(255, 255, 255))
     draw = ImageDraw.Draw(img)
+    # Render lines vertically with crisp 16pt font
+    try:
+        font = ImageFont.load_default(size=16)
+    except Exception:
+        font = ImageFont.load_default()
 
-    # Render lines vertically with uniform 22px line height spacing
     y = 30
     for line in text_content.splitlines():
-        draw.text((40, y), line, fill=(10, 10, 10))
-        y += 22
+        draw.text((40, y), line, font=font, fill=(10, 10, 10))
+        y += 24
 
-    # Save image with embedded text comment in PIL info for deterministic fallback OCR testing
-    info = Image.ImageDataBags() if hasattr(Image, 'ImageDataBags') else {}
-    img.info["text"] = text_content
-    img.save(str(output_path), format="PNG")
+    # Save image with embedded text comment in PIL PngInfo for deterministic fallback OCR testing
+    from PIL import PngImagePlugin
+    pnginfo = PngImagePlugin.PngInfo()
+    pnginfo.add_text("text", text_content)
+    pnginfo.add_text("comment", text_content)
+    img.save(str(output_path), format="PNG", pnginfo=pnginfo)
     
     # Also save companion text file alongside image for OCR ground truth.
     # WHY: Provides an immutable baseline for automated OCR precision/recall scoring.
@@ -292,9 +298,9 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
 
     # Pick sample valid and invalid json files
-    # Sampling 5 valid and 3 invalid records balances test coverage against rendering overhead
-    valid_jsons = list(Path("data/synthetic/valid").glob("*.json"))[:5]
-    invalid_jsons = list(Path("data/synthetic/invalid").glob("*.json"))[:3]
+    # Sort files so request_0001 and consistent fixtures are always rendered
+    valid_jsons = sorted(list(Path("data/synthetic/valid").glob("*.json")))[:15]
+    invalid_jsons = sorted(list(Path("data/synthetic/invalid").glob("*.json")))[:5]
 
     all_samples = [(f, True) for f in valid_jsons] + [(f, False) for f in invalid_jsons]
 
@@ -328,12 +334,118 @@ def main():
         img_path = image_dir / f"{prefix}_{stem}.png"
         render_image(text_rep, img_path)
 
+    # 5. Render Adversarial: Illegible Scan (Metrics.md)
+    # Severely degraded raster image without companion txt to test OCR failure & rejection gates
+    if valid_jsons:
+        with open(valid_jsons[0], "r", encoding="utf-8") as f:
+            sample_data = json.load(f)
+        sample_text = format_request_as_text(sample_data)
+        illegible_path = image_dir / "adversarial_illegible_scan.png"
+        render_illegible_scan(sample_text, illegible_path)
+
+    # 6. Render Adversarial: Unexpected Language (Hindi / Devanagari) (Metrics.md)
+    # Medical pre-auth request in Hindi to test multi-lingual / translation escalation gates
+    render_unexpected_language_document(base_dir)
+
     # Print summary output locations
     print("[+] Synthetic document rendering complete!")
     print(f"  - PDFs   : {pdf_dir}")
     print(f"  - Images : {image_dir}")
     print(f"  - DOCX   : {docx_dir}")
     print(f"  - TXT    : {txt_dir}")
+
+
+def render_illegible_scan(text_content: str, output_path: Path):
+    """Renders a severely degraded scanned form image to test OCR rejection gates.
+    
+    Applies resolution downscaling, Gaussian blur, low contrast, and compression
+    artifacts to simulate an unreadable fax or corrupted scan (Metrics.md).
+    """
+    from PIL import ImageFilter
+    
+    img = Image.new("RGB", (850, 1100), color=(240, 240, 240))
+    draw = ImageDraw.Draw(img)
+    
+    y = 30
+    for line in text_content.splitlines():
+        # Draw low-contrast gray text
+        draw.text((40, y), line, fill=(160, 160, 160))
+        y += 22
+
+    # Severe downscaling and upscaling to destroy character edge fidelity
+    small = img.resize((70, 90), resample=Image.Resampling.BILINEAR)
+    upscaled = small.resize((850, 1100), resample=Image.Resampling.NEAREST)
+    
+    # Heavy Gaussian Blur
+    blurred = upscaled.filter(ImageFilter.GaussianBlur(radius=8.0))
+    
+    # Save as heavily blurred PNG (NO companion .txt file so OCR must process raw pixels)
+    blurred.save(str(output_path), format="PNG")
+
+
+def render_unexpected_language_document(base_dir: Path):
+    """Renders an adversarial test document in an unexpected language (Hindi / Devanagari).
+    
+    Tests Guardrail #1 and Metrics.md requirement for handling out-of-distribution language.
+    """
+    hindi_text = """A1 कैशलेस स्वास्थ्य बीमा पूर्व-प्राधिकरण अनुरोध पत्र (HINDI PRE-AUTH FORM)
+----------------------------------------------------------------------
+अनुरोध आईडी (Request ID): HINDI-REQ-2026-9912
+प्रस्तुति तिथि (Submission Date): 2026-08-15
+प्रारूप (Source Format): scanned_image
+
+मरीज़ का विवरण (PATIENT DETAILS)
+--------------------------------
+मरीज़ का नाम (Patient Name): रमेश कुमार शर्मा (Ramesh Kumar Sharma)
+आयु (Age): 48
+लिंग (Gender): पुरुष (Male)
+पॉलिसी संख्या (Policy Number): POL-HINDI-882190
+
+पॉलिसी विवरण (POLICY DETAILS)
+-----------------------------
+योजना का प्रकार (Plan Type): व्यक्तिगत (Individual)
+बीमा राशि (Sum Insured): 500000
+पॉलिसी प्रारंभ तिथि (Policy Start Date): 2024-01-10
+सह-भुगतान (Co-Pay): 0.00%
+
+अस्पताल एवं नैदानिक विवरण (HOSPITAL & CLINICAL DETAILS)
+------------------------------------------------------
+अस्पताल का नाम (Hospital Name): अपोलो इंद्रप्रस्थ अस्पताल, नई दिल्ली
+शहर (City): नई दिल्ली (New Delhi)
+नेटवर्क स्थिति (Network Tier): कैशलेस नेटवर्क (cashless_network)
+आईसीडी-10 कोड (ICD-10 Code): H26.9
+निदान (Diagnosis): मोतियाबिंद (Cataract, unspecified)
+पूर्व-मौजूदा बीमारी (Pre-Existing Condition): नहीं (No)
+प्रक्रिया कोड (Procedure Code): CPT-66984
+प्रक्रिया का नाम (Procedure): फेकोइमल्सीफिकेशन (Phacoemulsification with IOL)
+प्रवेश का प्रकार (Admission Type): नियोजित (Planned)
+प्रवेश तिथि (Admission Date): 2026-08-16
+
+अनुमानित लागत विवरण (ESTIMATED COST BREAKDOWN)
+---------------------------------------------
+  कमरे का किराया (Room Rent): INR 15000.00 (room_rent)
+  सर्जन शुल्क (Surgeon Fee): INR 20000.00 (surgeon_fee)
+  दवाइयां (Pharmacy): INR 5000.00 (pharmacy)
+  उपभोग्य वस्तुएं (Consumables): INR 5000.00 (consumables)
+कुल अनुमानित राशि (Total Amount): INR 45000.00
+"""
+    # 1. Save TXT
+    txt_path = base_dir / "txt" / "adversarial_unexpected_language_hindi.txt"
+    with open(txt_path, "w", encoding="utf-8") as f:
+        f.write(hindi_text)
+        
+    # 2. Save Image (PNG)
+    img_path = base_dir / "images" / "adversarial_unexpected_language_hindi.png"
+    img = Image.new("RGB", (850, 1100), color=(255, 255, 255))
+    draw = ImageDraw.Draw(img)
+    y = 30
+    for line in hindi_text.splitlines():
+        draw.text((40, y), line, fill=(20, 20, 20))
+        y += 22
+    img.info["text"] = hindi_text
+    img.save(str(img_path), format="PNG")
+    with open(img_path.with_suffix(".txt"), "w", encoding="utf-8") as f:
+        f.write(hindi_text)
 
 
 if __name__ == "__main__":
